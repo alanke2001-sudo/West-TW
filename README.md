@@ -6,6 +6,7 @@
 
 | 日期 | 報告 | 檔案 |
 |---|---|---|
+| 2026-10-22 | [解放軍無人系統與直升機威脅資料庫](reports/2026-10-pla-unmanned/index.html)（54 筆條目、3 張圖解、51 筆出處，可篩選） | [Word](reports/2026-10-pla-unmanned/) · [CSV](reports/2026-10-pla-unmanned/entries.csv) · [JSON](reports/2026-10-pla-unmanned/entries.json) · [圖解](reports/2026-10-pla-unmanned/figures/) |
 | 2026-10-20 | [解放軍對台軍事行動態勢研析](reports/2026-10-pla-taiwan/index.html)（六章、13 張圖解、42 筆出處） | [Word](reports/2026-10-pla-taiwan/) · [圖解](reports/2026-10-pla-taiwan/figures/) |
 
 ## 結構
