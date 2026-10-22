@@ -5,7 +5,7 @@ const { chromium } = require('/opt/node22/lib/node_modules/playwright');
   const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' }).catch(() => chromium.launch());
   const p = await b.newPage({ viewport: { width: 1100, height: 900 }, deviceScaleFactor: 2 });
   await p.goto('file://' + process.cwd() + '/index.html');
-  for (const f of await p.$$('figure')) {
+  for (const f of await p.$$('figure[id^=fig]')) {
     const id = await f.getAttribute('id');
     await f.screenshot({ path: 'figures/圖' + id.slice(3) + '.png' });
   }
