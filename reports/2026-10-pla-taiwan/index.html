@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>解放軍犯台態勢研析</title>
+<style>
+/* Layout: 單欄參謀研析文件，圖解可較正文寬；左側章節編號為真實章序 */
+:root{
+  --bg:#eef1f2; --paper:#ffffff; --ink:#172129; --muted:#56636e; --rule:#d3dadf;
+  --accent:#a8322a; --accent-tint:rgba(168,50,42,.10); --tw:#1d5596; --tw-tint:rgba(29,85,150,.10);
+  --sea:#e3ebf1; --land-cn:#d2d5d0; --land-tw:#c9d8ea; --grid:#cad6df;
+  --fact:#2f6b43; --off:#1d5596; --est:#93620b; --calc:#5b6670;
+  --good:#3f8a57; --fair:#c89a3a; --poor:#b9c0c6;
+  --f-display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --f-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei","WenQuanYi Zen Hei",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1316; --paper:#151c21; --ink:#e3e9ed; --muted:#98a5af; --rule:#2b363e;
+  --accent:#ec7065; --accent-tint:rgba(236,112,101,.14); --tw:#7eaee9; --tw-tint:rgba(126,174,233,.14);
+  --sea:#122029; --land-cn:#2a302d; --land-tw:#233a55; --grid:#22323d;
+  --fact:#72c08d; --off:#7eaee9; --est:#e0b259; --calc:#a3adb5;
+  --good:#58a872; --fair:#c8a24f; --poor:#3a454d; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1316; --paper:#151c21; --ink:#e3e9ed; --muted:#98a5af; --rule:#2b363e;
+  --accent:#ec7065; --accent-tint:rgba(236,112,101,.14); --tw:#7eaee9; --tw-tint:rgba(126,174,233,.14);
+  --sea:#122029; --land-cn:#2a302d; --land-tw:#233a55; --grid:#22323d;
+  --fact:#72c08d; --off:#7eaee9; --est:#e0b259; --calc:#a3adb5;
+  --good:#58a872; --fair:#c8a24f; --poor:#3a454d; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.8;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.doc{max-width:980px;margin:0 auto}
+.col{max-width:720px;margin:0 auto}
+header.cover{padding-block:56px 32px;border-bottom:2px solid var(--ink);max-width:720px;margin:0 auto 32px}
+.cls{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;color:var(--accent);text-transform:uppercase}
+h1{font-family:var(--f-display);font-size:clamp(28px,5vw,40px);line-height:1.3;margin:10px 0 12px;text-wrap:balance}
+.sub{color:var(--muted);font-size:15px;margin:0}
+.meta{font-family:var(--f-mono);font-size:12.5px;color:var(--muted);margin-top:18px;display:flex;flex-wrap:wrap;gap:6px 20px}
+h2{font-family:var(--f-display);font-size:26px;line-height:1.4;margin:64px 0 8px;text-wrap:balance;display:flex;gap:14px;align-items:baseline}
+h2 .no{font-family:var(--f-mono);font-size:14px;font-weight:500;color:var(--accent);letter-spacing:.06em;flex:none}
+h3{font-size:18px;font-weight:700;margin:32px 0 6px}
+p{margin:0 0 14px}
+.lead{font-size:17px}
+ul{margin:0 0 14px;padding-left:1.3em}
+li{margin:4px 0}
+a{color:var(--tw)}
+sup a{font-family:var(--f-mono);font-size:11px;text-decoration:none;padding:0 1px}
+.tag{display:inline-block;font-size:11.5px;font-weight:500;line-height:1;padding:4px 7px 3px;border-radius:3px;border:1px solid currentColor;margin-right:6px;vertical-align:2px;white-space:nowrap}
+.tag.fact{color:var(--fact)} .tag.off{color:var(--off)} .tag.est{color:var(--est)} .tag.calc{color:var(--calc)}
+.legend{display:flex;flex-wrap:wrap;gap:10px 18px;font-size:14px;color:var(--muted);padding:14px 16px;border:1px solid var(--rule);background:var(--paper)}
+.toc{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding-block:16px;margin:24px 0}
+.toc ol{margin:0;padding-left:1.4em;columns:2 260px;font-size:15px}
+.keypts{background:var(--paper);border:1px solid var(--rule);padding:18px 20px;margin:20px 0}
+.keypts h3{margin-top:0}
+figure{margin:28px 0 32px;background:var(--paper);border:1px solid var(--rule);padding:16px 16px 12px}
+figure .scroll{overflow-x:auto}
+figure svg{display:block;width:100%;min-width:560px;height:auto}
+figure.map svg{min-width:0;max-width:640px;margin:0 auto}
+figcaption{font-size:13.5px;color:var(--muted);margin-top:10px;line-height:1.6}
+figcaption b{color:var(--ink);font-family:var(--f-mono);font-weight:500;margin-right:6px}
+.tbl{overflow-x:auto;margin:20px 0 26px}
+table{border-collapse:collapse;width:100%;font-size:14px;line-height:1.6;background:var(--paper)}
+th,td{border:1px solid var(--rule);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--tw-tint);font-weight:700;white-space:nowrap}
+td.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.note{border-left:3px solid var(--est);padding:4px 0 4px 14px;color:var(--muted);font-size:14.5px;margin:16px 0}
+ol.refs{font-size:13.5px;line-height:1.65;padding-left:2.4em}
+ol.refs li{margin:6px 0;word-break:break-word}
+.maplegend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--muted);margin-top:8px}
+.sw{display:inline-block;width:12px;height:12px;vertical-align:-1px;margin-right:5px;border:1px solid var(--muted)}
+/* SVG */
+svg text{font-family:var(--f-body)}
+.sea{fill:var(--sea)} .cn{fill:var(--land-cn);stroke:var(--muted);stroke-width:.6} .tw{fill:var(--land-tw);stroke:var(--tw);stroke-width:1.2} .jp{fill:var(--land-cn);stroke:var(--muted);stroke-width:.6}
+.grid{stroke:var(--grid);stroke-width:.7}
+.m-g{font-size:10px;fill:var(--muted)} .m-s{font-size:11.5px;fill:var(--ink)} .m-t{font-size:12px;fill:var(--ink)}
+.m-b{font-size:16px;font-weight:700;fill:var(--ink)} .m-z{font-size:12.5px;font-weight:700;fill:var(--accent)} .m-r{font-size:12px;font-weight:700;fill:var(--tw)}
+.zone{fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.4;stroke-dasharray:5 3}
+.ccg{fill:none;stroke:var(--accent);stroke-width:1.2;stroke-dasharray:2 4}
+.cv{fill:var(--accent)} .impact{stroke:var(--accent);stroke-width:2;fill:none}
+.port{fill:var(--paper);stroke:var(--tw);stroke-width:2} .energy{fill:var(--est);stroke:var(--paper);stroke-width:1.5}
+.emb{fill:var(--accent);stroke:var(--paper);stroke-width:1.5}
+.beach{fill:var(--tw);stroke:var(--paper);stroke-width:1.5}
+.lane{fill:none;stroke:var(--accent);stroke-width:2;opacity:.85} .lane-P{stroke-dasharray:4 3} .ahead{fill:var(--accent)}
+.meas{stroke:var(--ink);stroke-width:1;stroke-dasharray:3 3}
+.d-box{fill:var(--paper);stroke:var(--muted);stroke-width:1.1}
+.d-hi{fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.6}
+.d-tw{fill:var(--tw-tint);stroke:var(--tw);stroke-width:1.4}
+.d-th{font-size:13.5px;font-weight:700;fill:var(--ink)} .d-t{font-size:12px;fill:var(--ink)} .d-ts{font-size:11.5px;fill:var(--muted)}
+.d-ac{font-size:12px;font-weight:700;fill:var(--accent)} .d-twt{font-size:12px;font-weight:700;fill:var(--tw)}
+.d-line{stroke:var(--muted);stroke-width:1.2;fill:none} .d-dash{stroke:var(--accent);stroke-width:1.3;fill:none;stroke-dasharray:5 4}
+.d-axis{stroke:var(--ink);stroke-width:1.4}
+.d-dot{fill:var(--accent)} .d-dot2{fill:var(--paper);stroke:var(--accent);stroke-width:2} .d-dot3{fill:var(--tw)}
+.st0{fill:var(--paper);stroke:var(--muted)} .st1{fill:var(--accent-tint);stroke:var(--muted)} .st2{fill:var(--accent-tint);stroke:var(--accent)}
+.st3{fill:var(--accent);fill-opacity:.28;stroke:var(--accent)} .st4{fill:var(--accent);fill-opacity:.42;stroke:var(--accent)} .st5{fill:var(--accent);fill-opacity:.58;stroke:var(--accent)}
+.wx-g{fill:var(--good)} .wx-f{fill:var(--fair)} .wx-p{fill:var(--poor)}
+.bar{fill:var(--accent)} .bar2{fill:var(--accent);fill-opacity:.55} .bar3{fill:var(--accent);fill-opacity:.3}
+.ring1{fill:var(--sea);stroke:var(--accent);stroke-dasharray:6 4;stroke-width:1.2}
+.ring2{fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2}
+.ring3{fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.6}
+.ring4{fill:var(--land-tw);stroke:var(--tw);stroke-width:1.6}
+.mtn{fill:var(--land-cn);fill-opacity:.7;stroke:none}
+.lodg{fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.5}
+.push{fill:none;stroke:var(--accent);stroke-width:2.6} .push.dash{stroke-dasharray:6 4;stroke-width:2}
+.counter{fill:none;stroke:var(--tw);stroke-width:2.6;stroke-dasharray:2 3} .bhead{fill:var(--tw)}
+.para{fill:var(--paper);stroke:var(--accent);stroke-width:1.6}
+.m-twt{font-size:12px;font-weight:700;fill:var(--tw)}
+@media (max-width:520px){h2{font-size:22px} body{font-size:15.5px}}
+</style>
+<style>@media print{body{background:#fff} figure{break-inside:avoid} .toc{display:none}}</style>
+</head>
+<body>
+
+<div class="doc">
+<p style="max-width:720px;margin:20px auto 0;font-size:14px"><a href="../../index.html">← 返回 West-TW 報告資料庫</a></p>
+<header class="cover">
+  <div class="cls">公開資訊彙整 · OSINT 研析</div>
+  <h1>解放軍對台軍事行動態勢研析</h1>
+  <p class="sub">準備工作、重大時間節點、封鎖控制作為、航渡規劃、可能運用兵力與登陸後縱深作戰</p>
+  <div class="meta"><span>資料截止：2026-10-20</span><span>來源：各國國防部門報告、智庫研究、新聞報導</span><span>性質：公開資訊彙整，非機密情資</span></div>
+</header>
+
+<div class="col">
+<p class="lead">本報告彙整台灣國防部、美國國防部、CSIS、CMSI（美國海軍戰爭學院中國海事研究所）、卡內基基金會、ASPI 等公開來源，以及 2022 年以來解放軍歷次環台演習的報導，說明解放軍若對台採取軍事行動，可能的準備、時程、封鎖、航渡與兵力運用方式。各段重點標註判讀層級，並以上標編號連結文末出處。</p>
+
+<div class="legend" role="note">
+  <span><span class="tag fact">事實</span>已發生、公開可查證</span>
+  <span><span class="tag off">官方評估</span>台、美國防部門之研判</span>
+  <span><span class="tag est">推估</span>智庫、學者之分析或兵推</span>
+  <span><span class="tag calc">本報告推算</span>依公開數據自行換算</span>
+</div>
+
+<div class="keypts">
+<h3>摘要</h3>
+<ul>
+<li><span class="tag off">官方評估</span>台灣國防部 2026 年 8 月《115 年中共軍力報告書》指出，近年共軍對台演訓以「聯合封控」台灣對外航道為核心，且首度明確其想定包含「登島」，但評估聯合登島能力仍不足，轉型約需至 2030 至 2035 年。<sup><a href="#r1">1</a><a href="#r2">2</a></sup></li>
+<li><span class="tag off">官方評估</span>美國國防部 2025 年 12 月中共軍力報告認為，解放軍持續朝 2027 年「建軍百年」目標推進，可供選擇的方案包括聯合封鎖、聯合火力打擊與兩棲登陸，其中登陸風險最高。<sup><a href="#r4">4</a><a href="#r5">5</a></sup></li>
+<li><span class="tag fact">事實</span>2022 年 8 月至 2025 年 12 月，解放軍已實施 8 次大規模環台演習，內容由「圍台」演進到封港、斷航、模擬打擊能源設施，火箭彈落點逼近台灣 24 浬鄰接區。<sup><a href="#r9">9</a><a href="#r11">11</a></sup></li>
+<li><span class="tag est">推估</span>軍用兩棲艦首波運量約 2 至 2.5 萬人；計入民用滾裝船後，首波可能達約 6 萬人，約 10 天內累計可達約 30 萬人，但民船須先奪取港口或架設浮動碼頭才能有效卸載。<sup><a href="#r17">17</a><a href="#r18">18</a></sup></li>
+<li><span class="tag est">推估</span>海峽氣象使適合大規模渡海的窗口集中於 4 月與 10 月前後。<sup><a href="#r21">21</a></sup></li>
+<li><span class="tag est">推估</span>登陸後最困難的是突破登陸場與維持補給；解放軍需奪取港口、機場實施「行政下卸」，再沿北部或中部軸線向台北推進，朱日和已有仿台北政府區供城鎮戰與斬首演練。<sup><a href="#r30">30</a><a href="#r35">35</a><a href="#r37">37</a></sup></li>
+</ul>
+</div>
+
+<nav class="toc" aria-label="目錄"><ol>
+<li><a href="#c0">總覽：由威懾到登島的升級階梯</a></li>
+<li><a href="#c1">第一章 準備工作</a></li>
+<li><a href="#c2">第二章 重大時間節點</a></li>
+<li><a href="#c3">第三章 封鎖控制作為</a></li>
+<li><a href="#c4">第四章 航渡規劃</a></li>
+<li><a href="#c5">第五章 可能運用兵力</a></li>
+<li><a href="#c7">第六章 登陸後縱深作戰可能行動</a></li>
+<li><a href="#c6">結論與觀察指標</a></li>
+<li><a href="#refs">參考資料</a></li>
+</ol></nav>
+
+<h2 id="c0"><span class="no">總覽</span>由威懾到登島的升級階梯</h2>
+<p><span class="tag off">官方評估</span>台灣國防部歷年報告將中共對台動武方式歸納為「聯合軍事威懾、聯合封鎖作戰、聯合火力打擊、聯合登島作戰」等類型；美國國防部報告亦將其描述為由低於戰爭門檻的脅迫，逐步升高至「聯合島嶼登陸戰役」的一組選項。<sup><a href="#r3">3</a><a href="#r4">4</a><a href="#r6">6</a></sup> 這些選項不必依序進行，可單獨使用，也可能在演習掩護下快速轉換。CSIS 另將由海警主導的「隔離」（quarantine）列為低於封鎖、在短期內更可能出現的選項。<sup><a href="#r8">8</a></sup></p>
+</div>
+
+<figure class="doc" id="fig1"><div class="scroll"><svg viewBox="0 0 760 362" role="img" aria-label="解放軍對台軍事選項升級階梯"><text class="d-th" x="24" y="26" text-anchor="start">行動強度與風險</text><text class="d-ts" x="24" y="44" text-anchor="start">由左至右升高；各選項可單獨使用或快速轉換</text><rect class="st0" x="24" y="250" width="114" height="80" rx="4" stroke-width="1.3"/><text class="d-th" x="34" y="274" text-anchor="start">灰色地帶襲擾</text><text class="d-ts" x="34" y="294" text-anchor="start">機艦擾台</text><text class="d-ts" x="34" y="310" text-anchor="start">海警巡查金門</text><rect class="st1" x="146" y="216" width="114" height="114" rx="4" stroke-width="1.3"/><text class="d-th" x="156" y="240" text-anchor="start">戰備警巡・軍演</text><text class="d-ts" x="156" y="260" text-anchor="start">聯合利劍、海峽</text><text class="d-ts" x="156" y="276" text-anchor="start">雷霆、正義使命</text><rect class="st2" x="268" y="182" width="114" height="148" rx="4" stroke-width="1.3"/><text class="d-th" x="278" y="206" text-anchor="start">海警隔離</text><text class="d-ts" x="278" y="226" text-anchor="start">識別查證、登檢</text><text class="d-ts" x="278" y="242" text-anchor="start">扣押、宣示管轄</text><rect class="st3" x="390" y="148" width="114" height="182" rx="4" stroke-width="1.3"/><text class="d-th" x="400" y="172" text-anchor="start">聯合封鎖</text><text class="d-ts" x="400" y="192" text-anchor="start">封港、斷航</text><text class="d-ts" x="400" y="208" text-anchor="start">斷纜、斷網</text><rect class="st4" x="512" y="114" width="114" height="216" rx="4" stroke-width="1.3"/><text class="d-th" x="522" y="138" text-anchor="start">聯合火力打擊</text><text class="d-ts" x="522" y="158" text-anchor="start">飛彈與空中打擊</text><text class="d-ts" x="522" y="174" text-anchor="start">癱瘓指管、斬首</text><rect class="st5" x="634" y="80" width="114" height="250" rx="4" stroke-width="1.3"/><text class="d-th" x="644" y="104" text-anchor="start">聯合登島</text><text class="d-ts" x="644" y="124" text-anchor="start">奪外島、搶灘</text><text class="d-ts" x="644" y="140" text-anchor="start">攻占要港要點</text><line class="d-dash" x1="385" y1="72" x2="385" y2="340"/><text class="d-ac" x="392" y="84" text-anchor="start">封鎖門檻：國際法上之戰爭行為</text><text class="d-ts" x="24" y="352" text-anchor="start">低於戰爭門檻（灰色地帶、法律戰、認知戰）</text><text class="d-ts" x="738" y="352" text-anchor="end">武裝衝突</text></svg></div>
+<figcaption><b>圖 1</b>解放軍對台軍事選項的升級階梯（依台、美國防報告與 CSIS 分類綜整）。紅色虛線為國際法上「封鎖」被視為戰爭行為的門檻。</figcaption></figure>
+
+<div class="col">
+<h2 id="c1"><span class="no">第一章</span>準備工作</h2>
+<p>解放軍對台軍事行動的準備可分為五個面向：政治法律、指揮編制、裝備投送、演訓轉戰、動員後勤。前四項多已在公開資訊中出現，第五項中的「戰爭動員」則是外界判斷行動是否迫近的主要預警指標。</p>
+</div>
+
+<figure class="doc" id="fig2"><div class="scroll"><svg viewBox="0 0 760 256" role="img" aria-label="解放軍對台軍事準備五個面向"><rect class="d-box" x="19" y="20" width="138" height="170" rx="6"/><rect class="d-tw" x="19" y="20" width="138" height="40" rx="6"/><text class="d-th" x="88" y="46" text-anchor="middle">政治法律</text><text class="d-t" x="31" y="88" text-anchor="start">反分裂國家法(2005)</text><text class="d-t" x="31" y="114" text-anchor="start">國防動員法(2010)</text><text class="d-t" x="31" y="140" text-anchor="start">懲治台獨22條(2024)</text><text class="d-t" x="31" y="166" text-anchor="start">國際輿論「法理戰」</text><rect class="d-box" x="165" y="20" width="138" height="170" rx="6"/><rect class="d-tw" x="165" y="20" width="138" height="40" rx="6"/><text class="d-th" x="234" y="46" text-anchor="middle">指揮編制</text><text class="d-t" x="177" y="88" text-anchor="start">東部戰區(2016)</text><text class="d-t" x="177" y="114" text-anchor="start">信息支援部隊(2024)</text><text class="d-t" x="177" y="140" text-anchor="start">聯合作戰指揮體系</text><text class="d-t" x="177" y="166" text-anchor="start">高層整肅影響待觀察</text><rect class="d-box" x="311" y="20" width="138" height="170" rx="6"/><rect class="d-tw" x="311" y="20" width="138" height="40" rx="6"/><text class="d-th" x="380" y="46" text-anchor="middle">裝備投送</text><text class="d-t" x="323" y="88" text-anchor="start">075型×4、071型×8</text><text class="d-t" x="323" y="114" text-anchor="start">076四川艦海試</text><text class="d-t" x="323" y="140" text-anchor="start">水橋駁船(2025)</text><text class="d-t" x="323" y="166" text-anchor="start">民用滾裝船動員</text><rect class="d-box" x="457" y="20" width="138" height="170" rx="6"/><rect class="d-tw" x="457" y="20" width="138" height="40" rx="6"/><text class="d-th" x="526" y="46" text-anchor="middle">演訓轉戰</text><text class="d-t" x="469" y="88" text-anchor="start">由訓轉戰、由演轉戰</text><text class="d-t" x="469" y="114" text-anchor="start">抵近24浬演習</text><text class="d-t" x="469" y="140" text-anchor="start">封港・斷航想定</text><text class="d-t" x="469" y="166" text-anchor="start">戰備警巡常態化</text><rect class="d-box" x="603" y="20" width="138" height="170" rx="6"/><rect class="d-tw" x="603" y="20" width="138" height="40" rx="6"/><text class="d-th" x="672" y="46" text-anchor="middle">動員後勤</text><text class="d-t" x="615" y="88" text-anchor="start">民船徵用演練</text><text class="d-t" x="615" y="114" text-anchor="start">油料・彈藥儲備</text><text class="d-t" x="615" y="140" text-anchor="start">野戰醫療・捐血</text><text class="d-t" x="615" y="166" text-anchor="start">港口裝載能力</text><rect class="d-hi" x="19" y="206" width="722" height="40" rx="6"/><text class="d-th" x="380" y="231" text-anchor="middle">美方評估目標：2027 年建軍百年前，具備對台取得「戰略決勝」的可信軍事選項</text></svg></div>
+<figcaption><b>圖 2</b>解放軍對台軍事準備的五個面向與公開可見的進展。</figcaption></figure>
+
+<div class="col">
+<h3>1.1 政治與法律準備</h3>
+<p><span class="tag fact">事實</span>2005 年《反分裂國家法》第 8 條規定，在「和平統一的可能性完全喪失」等情況下可採取「非和平方式」；2010 年《國防動員法》則提供徵用民間船舶、車輛與人力的法源。2024 年 6 月中共公布「懲治台獨」22 條意見，將法律戰延伸至對台人員。這些措施讓北京可將封鎖或執法行動包裝為「內政」與「司法管轄」。</p>
+<p><span class="tag off">官方評估</span>台灣國防部指出，中共持續以灰色地帶襲擾、聯合戰備警巡與針對性軍演，嘗試對台灣全面封控，並藉威懾態勢營造備戰氛圍。<sup><a href="#r1">1</a><a href="#r3">3</a></sup></p>
+
+<h3>1.2 指揮與編制</h3>
+<p><span class="tag fact">事實</span>2016 年軍改後由東部戰區統一負責對台作戰，歷次環台演習均由東部戰區發布。2024 年 4 月戰略支援部隊拆編為信息支援部隊、軍事航天部隊與網絡空間部隊，強化聯合作戰所需的資訊與太空支援。</p>
+<p><span class="tag off">官方評估</span>美國國防部 2025 年報告指出，解放軍高層雖歷經整肅與調查，仍持續朝 2027 年目標推進，報告主軸被形容為「動盪與進展並存」。<sup><a href="#r4">4</a></sup></p>
+
+<h3>1.3 裝備與投送能力</h3>
+<ul>
+<li><span class="tag fact">事實</span>海軍已有 4 艘 075 型兩棲攻擊艦（第 4 艘湖北艦 2025 年服役）與 8 艘 071 型船塢登陸艦；首艘 076 型「四川艦」於 2025 年 11 月首次海試。<sup><a href="#r19">19</a><a href="#r20">20</a></sup></li>
+<li><span class="tag fact">事實</span>2025 年 3 月，3 艘「水橋」駁船在廣東湛江海灘連結成可延伸的棧橋碼頭，可從深水區直通岸際卸載重裝備。CMSI 學者 Andrew Erickson 認為這是「專為攻台情境打造」。<sup><a href="#r13">13</a><a href="#r14">14</a></sup></li>
+<li><span class="tag fact">事實</span>民用滾裝船持續參與軍事投送演練。CMSI 統計 2023 年有 36 艘民船、744 船日支援海軍；另一場為期 5 週的夏季演練有 12 艘民船往返 11 個港口 82 航次。<sup><a href="#r15">15</a></sup></li>
+<li><span class="tag off">官方評估</span>《115 年中共軍力報告書》提到陸軍研改直-20、研發無人運輸直升機、海軍研製 076 型艦，並新增部署「國網」「千帆」低軌通信衛星群與第四代北斗，以降低登島後通訊導航遭干擾的風險。<sup><a href="#r2">2</a></sup></li>
+</ul>
+
+<h3>1.4 演訓轉戰</h3>
+<p><span class="tag off">官方評估</span>台灣國防部《114 年中共軍力報告書》揭露共軍「由訓轉戰、由演轉戰」的態樣，例如抵近 24 浬演習、在第一與第二島鏈間常態部署兵力；《115 年報告書》則指出演練重點已朝海空封鎖或隔離、聯合火力打擊、奪取綜合制權與聯合登陸作戰發展，並納入俄烏戰爭與中東衝突的無人機蜂群、電子戰與反無人機經驗。<sup><a href="#r1">1</a><a href="#r3">3</a><a href="#r2">2</a></sup></p>
+
+<h3>1.5 動員後勤與預警指標</h3>
+<p><span class="tag est">推估</span>前 CIA 分析師 John Culver 在卡內基基金會的研究中指出，全面登陸作戰無法隱藏，須在數月至一年前出現可觀察的跡象，包括關鍵彈藥增產、1979 年以來首次正式動員令、徵用船舶車輛、沿海野戰醫院與大規模捐血等。<sup><a href="#r23">23</a></sup> 不過其他分析者提醒，封鎖不一定有明顯「倒數」，且以演習掩護集結會壓縮預警時間。CMSI 學者也指出，若民船分散在小型港口集結，將更難與日常海運活動區分。<sup><a href="#r16">16</a></sup></p>
+</div>
+
+<figure class="doc" id="fig3"><div class="scroll"><svg viewBox="0 0 760 210" role="img" aria-label="全面登陸作戰預警指標時序"><defs><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ahead"/></marker></defs><line class="d-axis" x1="40" y1="70" x2="736" y2="70" marker-end="url(#a3)"/><circle class="d-dot2" cx="92" cy="70" r="7"/><text class="d-th" x="92" y="48" text-anchor="middle">D－12 個月以上</text><rect class="d-box" x="26" y="96" width="132" height="70" rx="6"/><line class="d-line" x1="92" y1="77" x2="92" y2="96"/><text class="d-t" x="92" y="124" text-anchor="middle">關鍵彈藥增產</text><text class="d-t" x="92" y="146" text-anchor="middle">飛彈陣地擴建</text><circle class="d-dot2" cx="236" cy="70" r="7"/><text class="d-th" x="236" y="48" text-anchor="middle">D－3～4 個月</text><rect class="d-box" x="170" y="96" width="132" height="70" rx="6"/><line class="d-line" x1="236" y1="77" x2="236" y2="96"/><text class="d-t" x="236" y="124" text-anchor="middle">正式動員令</text><text class="d-t" x="236" y="146" text-anchor="middle">徵用船舶車輛</text><circle class="d-dot2" cx="380" cy="70" r="7"/><text class="d-th" x="380" y="48" text-anchor="middle">D－1～2 個月</text><rect class="d-box" x="314" y="96" width="132" height="70" rx="6"/><line class="d-line" x1="380" y1="77" x2="380" y2="96"/><text class="d-t" x="380" y="124" text-anchor="middle">沿海野戰醫院</text><text class="d-t" x="380" y="146" text-anchor="middle">捐血、部隊集結</text><circle class="d-dot2" cx="524" cy="70" r="7"/><text class="d-th" x="524" y="48" text-anchor="middle">D－數週</text><rect class="d-box" x="458" y="96" width="132" height="70" rx="6"/><line class="d-line" x1="524" y1="77" x2="524" y2="96"/><text class="d-t" x="524" y="124" text-anchor="middle">油料推進港口</text><text class="d-t" x="524" y="146" text-anchor="middle">遠距部隊戰備</text><circle class="d-dot" cx="668" cy="70" r="7"/><text class="d-th" x="668" y="48" text-anchor="middle">D 日</text><rect class="d-hi" x="602" y="96" width="132" height="70" rx="6"/><line class="d-line" x1="668" y1="77" x2="668" y2="96"/><text class="d-t" x="668" y="124" text-anchor="middle">封鎖或火力打擊</text><text class="d-t" x="668" y="146" text-anchor="middle">演習轉為行動</text><text class="d-ts" x="24" y="196" text-anchor="start">「演轉戰」或封鎖情境：上述步驟可能在演習名義下並行，預警時間縮短為數日至數週。</text></svg></div>
+<figcaption><b>圖 3</b>全面登陸作戰前可能出現的預警指標（依 Culver 2022 年研究整理）。封鎖或「演轉戰」模式的預警時間可能大幅縮短。</figcaption></figure>
+
+<div class="col">
+<h2 id="c2"><span class="no">第二章</span>重大時間節點</h2>
+<p>時間節點可分為兩類：一是已發生的演習與能力里程碑，用以觀察解放軍演練內容的演進；二是官方文件與各方評估提出的未來目標年份。</p>
+</div>
+
+<figure class="doc" id="fig4"><div class="scroll"><svg viewBox="0 0 760 774" role="img" aria-label="重大時間節點時間軸"><text class="d-ts" x="24" y="24" text-anchor="start">圖例：</text><circle class="d-dot" cx="72" cy="20" r="5"/><text class="d-ts" x="82" y="24" text-anchor="start">演習</text><circle class="d-dot3" cx="130" cy="20" r="5"/><text class="d-ts" x="140" y="24" text-anchor="start">裝備</text><rect class="d-tw" x="182" y="15" width="10" height="10"/><text class="d-ts" x="198" y="24" text-anchor="start">報告與我方演習</text><circle class="d-dot2" cx="306" cy="20" r="5"/><text class="d-ts" x="316" y="24" text-anchor="start">未來目標（評估）</text><line class="d-axis" x1="150" y1="48" x2="150" y2="542"/><line class="d-dash" x1="150" y1="542" x2="150" y2="744"/><text class="d-th" x="132" y="67" text-anchor="end">2022-08</text><circle class="d-dot" cx="150" cy="62" r="6"/><text class="d-th" x="172" y="62" text-anchor="start">台灣周邊重要軍事演訓</text><text class="d-ts" x="172" y="80" text-anchor="start">裴洛西訪台後；彈道飛彈飛越台灣上空</text><text class="d-th" x="132" y="115" text-anchor="end">2023-04</text><circle class="d-dot" cx="150" cy="110" r="6"/><text class="d-th" x="172" y="110" text-anchor="start">聯合利劍</text><text class="d-ts" x="172" y="128" text-anchor="start">總統過境美國後；演練封控與聯合打擊</text><text class="d-th" x="132" y="163" text-anchor="end">2024-05</text><circle class="d-dot" cx="150" cy="158" r="6"/><text class="d-th" x="172" y="158" text-anchor="start">聯合利劍-2024A</text><text class="d-ts" x="172" y="176" text-anchor="start">總統就職後；本島 5 區塊、外島 4 區塊</text><text class="d-th" x="132" y="211" text-anchor="end">2024-10</text><circle class="d-dot" cx="150" cy="206" r="6"/><text class="d-th" x="172" y="206" text-anchor="start">聯合利劍-2024B</text><text class="d-ts" x="172" y="224" text-anchor="start">6 區塊與鄰接區重疊；海警 4 編隊環台</text><text class="d-th" x="132" y="259" text-anchor="end">2025-03</text><circle class="d-dot3" cx="150" cy="254" r="6"/><text class="d-th" x="172" y="254" text-anchor="start">水橋駁船湛江試驗</text><text class="d-ts" x="172" y="272" text-anchor="start">可延伸棧橋碼頭，直通岸際卸載</text><text class="d-th" x="132" y="307" text-anchor="end">2025-04</text><circle class="d-dot" cx="150" cy="302" r="6"/><text class="d-th" x="172" y="302" text-anchor="start">海峽雷霆-2025A</text><text class="d-ts" x="172" y="320" text-anchor="start">攔截扣押課目；模擬打擊港口與能源設施</text><text class="d-th" x="132" y="355" text-anchor="end">2025-08</text><rect class="d-tw" x="144" y="344" width="12" height="12"/><text class="d-th" x="172" y="350" text-anchor="start">我國防部 114 年中共軍力報告</text><text class="d-ts" x="172" y="368" text-anchor="start">評估 2035 年前完備對台封鎖戰力</text><text class="d-th" x="132" y="403" text-anchor="end">2025-11</text><circle class="d-dot3" cx="150" cy="398" r="6"/><text class="d-th" x="172" y="398" text-anchor="start">福建艦成軍、076 型四川艦海試</text><text class="d-ts" x="172" y="416" text-anchor="start">航艦與兩棲攻擊艦能力擴充</text><text class="d-th" x="132" y="451" text-anchor="end">2025-12</text><circle class="d-dot" cx="150" cy="446" r="6"/><text class="d-th" x="172" y="446" text-anchor="start">正義使命-2025；美 2025 年中共軍力報告</text><text class="d-ts" x="172" y="464" text-anchor="start">封控要港要域；火箭彈落入 24 浬鄰接區</text><text class="d-th" x="132" y="499" text-anchor="end">2026-08</text><rect class="d-tw" x="144" y="488" width="12" height="12"/><text class="d-th" x="172" y="494" text-anchor="start">漢光 42 號；115 年中共軍力報告</text><text class="d-ts" x="172" y="512" text-anchor="start">首度演練西太平洋反封鎖；確認登島想定</text><text class="d-th" x="132" y="547" text-anchor="end">2026-10</text><circle class="d-dot2" cx="150" cy="542" r="6"/><text class="d-th" x="172" y="542" text-anchor="start">截至 10 月中旬</text><text class="d-ts" x="172" y="560" text-anchor="start">今年尚無具名大型環台演習，日常擾台持續</text><text class="d-th" x="132" y="595" text-anchor="end">2027</text><circle class="d-dot2" cx="150" cy="590" r="6"/><text class="d-th" x="172" y="590" text-anchor="start">建軍百年目標</text><text class="d-ts" x="172" y="608" text-anchor="start">美方評估：具備「戰略決勝」選項</text><text class="d-th" x="132" y="643" text-anchor="end">2030–35</text><circle class="d-dot2" cx="150" cy="638" r="6"/><text class="d-th" x="172" y="638" text-anchor="start">聯合登島作戰轉型完成（我方評估）</text><text class="d-ts" x="172" y="656" text-anchor="start">台灣國防部 2026 年報告</text><text class="d-th" x="132" y="691" text-anchor="end">2035</text><circle class="d-dot2" cx="150" cy="686" r="6"/><text class="d-th" x="172" y="686" text-anchor="start">國防和軍隊現代化</text><text class="d-ts" x="172" y="704" text-anchor="start">我方評估之最高風險時點</text><text class="d-th" x="132" y="739" text-anchor="end">2049</text><circle class="d-dot2" cx="150" cy="734" r="6"/><text class="d-th" x="172" y="734" text-anchor="start">建政百年</text><text class="d-ts" x="172" y="752" text-anchor="start">「世界一流軍隊」目標</text></svg></div>
+<figcaption><b>圖 4</b>2022 年至今的重大演習與能力節點，以及未來目標年份（虛線部分為評估或政治目標，非已知行動時程）。</figcaption></figure>
+
+<div class="col">
+<div class="tbl"><table>
+<thead><tr><th>時間</th><th>演習名稱</th><th>重點</th><th>出處</th></tr></thead>
+<tbody>
+<tr><td class="num">2022-08</td><td>台灣周邊重要軍事演訓</td><td>美國眾議院議長裴洛西訪台後實施，劃設環台演習區，彈道飛彈飛越台灣上空，首開大規模環台演習先例。</td><td><sup><a href="#r9">9</a></sup></td></tr>
+<tr><td class="num">2023-04</td><td>聯合利劍</td><td>蔡英文總統過境美國後實施，演練封控與聯合打擊，山東艦在台灣東部活動。</td><td><sup><a href="#r9">9</a></sup></td></tr>
+<tr><td class="num">2024-05</td><td>聯合利劍-2024A</td><td>賴清德總統就職後實施，台灣周邊 5 個區塊加外島 4 個區塊，北部區塊最接近台北、東部區塊鄰近花蓮。</td><td><sup><a href="#r9">9</a><a href="#r10">10</a></sup></td></tr>
+<tr><td class="num">2024-10</td><td>聯合利劍-2024B</td><td>6 個區塊與台灣鄰接區重疊；海警派 4 個編隊實施環台「執法巡查」。</td><td><sup><a href="#r9">9</a></sup></td></tr>
+<tr><td class="num">2025-04</td><td>海峽雷霆-2025A</td><td>課目含識別查證、警告驅離、攔截扣押，檢驗區域管控、聯合封鎖與精確打擊；模擬打擊重要港口與能源設施，山東艦編隊在台灣以東活動。台灣國防部當日偵獲至少 76 架次軍機、15 艘艦艇。</td><td><sup><a href="#r11">11</a><a href="#r12">12</a></sup></td></tr>
+<tr><td class="num">2025-12</td><td>正義使命-2025</td><td>12 月 29 至 30 日實施，標舉「海空戰備警巡、奪取綜合制權、封控要港要域、立體外線懾阻」；首日偵獲約 89 架次軍機，火箭彈落入距台約 24 浬鄰接區。</td><td><sup><a href="#r9">9</a><a href="#r10b">10</a></sup></td></tr>
+</tbody></table></div>
+<p class="note">各次演習的機艦架次統計依來源與統計時段不同而有差異，例如「正義使命-2025」首日有 89 與 130 架次兩種說法，引用時應註明來源。<sup><a href="#r9">9</a></sup></p>
+
+<h3>2.1 2026 年的情況</h3>
+<p><span class="tag fact">事實</span>截至 2026 年 10 月中旬，解放軍今年尚未實施具名的大型環台演習，但日常機艦擾台持續，例如某 12 小時內偵獲軍機 15 架次、艦艇 10 艘、公務船 7 艘。<sup><a href="#r25">25</a></sup> 同年 8 月 5 至 14 日的漢光 42 號實兵演習，首度以聯合軍演掩護大規模登陸準備為想定起點，並首次在西太平洋演練反封鎖物資接轉與護航。<sup><a href="#r24">24</a><a href="#r24b">24</a></sup></p>
+
+<h3>2.2 未來目標年份</h3>
+<ul>
+<li><b>2027 年</b>：<span class="tag off">官方評估</span>解放軍建軍百年目標。美方評估解放軍正在調整兵力，讓決策者具備對台取得「戰略決勝」的可信軍事選項；但具備能力不等於決定動武。<sup><a href="#r4">4</a><a href="#r5">5</a></sup></li>
+<li><b>2030 至 2035 年</b>：<span class="tag off">官方評估</span>台灣國防部 2026 年評估，解放軍約於此期間完成聯合登島作戰轉型。<sup><a href="#r1">1</a><a href="#r2">2</a></sup></li>
+<li><b>2035 年</b>：<span class="tag off">官方評估</span>中共「基本實現國防和軍隊現代化」年份。台灣國防部 2025 年評估共軍將於 2035 年前完備對台封鎖戰力，並認為風險最高的時間點是 2035 年而非 2027 年。<sup><a href="#r3">3</a></sup></li>
+<li><b>2049 年</b>：中共建政百年，「全面建成世界一流軍隊」目標年份。</li>
+</ul>
+
+<h3>2.3 季節窗口</h3>
+<p><span class="tag est">推估</span>台灣海峽冬季東北季風強勁、5 至 6 月梅雨、7 至 9 月颱風，加上濃霧與強流，使大規模渡海作戰窗口受限。ASPI 引述 Ian Easton 的分析，認為適合度「良好」的月份僅有 4 月與 10 月；War on the Rocks 則認為 3 至 5 月與 9 至 10 月為兩個理想窗口。各方月份界線略有差異，但都指向春、秋兩季。<sup><a href="#r21">21</a><a href="#r22">22</a></sup> 封鎖與火力打擊受天候限制較小，因此不必然受此窗口約束。</p>
+</div>
+
+<figure class="doc" id="fig5"><div class="scroll"><svg viewBox="0 0 760 150" role="img" aria-label="各月份渡海作戰天候適合度"><rect class="wx-p" x="40" y="40" width="54" height="54" rx="3"/><text class="d-th" x="67" y="72" text-anchor="middle">1月</text><rect class="wx-p" x="98" y="40" width="54" height="54" rx="3"/><text class="d-th" x="125" y="72" text-anchor="middle">2月</text><rect class="wx-f" x="156" y="40" width="54" height="54" rx="3"/><text class="d-th" x="183" y="72" text-anchor="middle">3月</text><rect class="wx-g" x="214" y="40" width="54" height="54" rx="3"/><text class="d-th" x="241" y="72" text-anchor="middle">4月</text><rect class="wx-f" x="272" y="40" width="54" height="54" rx="3"/><text class="d-th" x="299" y="72" text-anchor="middle">5月</text><rect class="wx-p" x="330" y="40" width="54" height="54" rx="3"/><text class="d-th" x="357" y="72" text-anchor="middle">6月</text><rect class="wx-p" x="388" y="40" width="54" height="54" rx="3"/><text class="d-th" x="415" y="72" text-anchor="middle">7月</text><rect class="wx-p" x="446" y="40" width="54" height="54" rx="3"/><text class="d-th" x="473" y="72" text-anchor="middle">8月</text><rect class="wx-f" x="504" y="40" width="54" height="54" rx="3"/><text class="d-th" x="531" y="72" text-anchor="middle">9月</text><rect class="wx-g" x="562" y="40" width="54" height="54" rx="3"/><text class="d-th" x="589" y="72" text-anchor="middle">10月</text><rect class="wx-p" x="620" y="40" width="54" height="54" rx="3"/><text class="d-th" x="647" y="72" text-anchor="middle">11月</text><rect class="wx-p" x="678" y="40" width="54" height="54" rx="3"/><text class="d-th" x="705" y="72" text-anchor="middle">12月</text><line class="d-axis" x1="40" y1="114" x2="152" y2="114"/><text class="d-ts" x="96.0" y="132" text-anchor="middle">東北季風</text><line class="d-axis" x1="620" y1="114" x2="732" y2="114"/><text class="d-ts" x="676.0" y="132" text-anchor="middle">東北季風</text><line class="d-axis" x1="272" y1="114" x2="384" y2="114"/><text class="d-ts" x="328.0" y="132" text-anchor="middle">梅雨</text><line class="d-axis" x1="388" y1="114" x2="558" y2="114"/><text class="d-ts" x="473.0" y="132" text-anchor="middle">颱風季</text><text class="d-ts" x="40" y="26" text-anchor="start">適合度：</text><rect class="wx-g" x="100" y="16" width="12" height="12" rx="2"/><text class="d-ts" x="118" y="26" text-anchor="start">良好</text><rect class="wx-f" x="170" y="16" width="12" height="12" rx="2"/><text class="d-ts" x="188" y="26" text-anchor="start">尚可</text><rect class="wx-p" x="240" y="16" width="12" height="12" rx="2"/><text class="d-ts" x="258" y="26" text-anchor="start">不佳</text></svg></div>
+<figcaption><b>圖 5</b>各月份大規模渡海作戰的天候適合度（定性分級，依 ASPI、War on the Rocks 引述之分析綜整）。</figcaption></figure>
+
+<div class="col">
+<h2 id="c3"><span class="no">第三章</span>封鎖控制作為</h2>
+<p><span class="tag off">官方評估</span>台灣國防部指出，共軍近年演練以「聯合封控」為核心，結合軍機、艦艇、海警船與海上民兵，目的在切斷台灣對外交通線、形成包圍態勢並創造有利攻擊條件。<sup><a href="#r6">6</a><a href="#r7">7</a></sup> 美國國防部將「聯合封鎖戰役」描述為切斷台灣海空交通與資訊網路，並可能伴隨大規模飛彈打擊與奪取外島。<sup><a href="#r5">5</a></sup></p>
+
+<h3>3.1 隔離與封鎖的差異</h3>
+<p><span class="tag est">推估</span>CSIS 將由海警、海上民兵與海事部門主導的「隔離」，與以軍事力量為主的「封鎖」區分開來。隔離可只針對特定港口或貨品，允許糧食、藥品通行，藉此宣示管轄權，並讓外國較難以「航行自由」為由介入；封鎖在國際法上則被視為戰爭行為。<sup><a href="#r8">8</a></sup></p>
+<div class="tbl"><table>
+<thead><tr><th>項目</th><th>隔離（海警主導）</th><th>聯合封鎖（軍事）</th></tr></thead>
+<tbody>
+<tr><td>主要執行者</td><td>中國海警、海上民兵、海事局，解放軍支援</td><td>東部戰區海、空、火箭軍，海警配合</td></tr>
+<tr><td>手段</td><td>識別查證、登臨檢查、扣押、宣告「執法」</td><td>封港、劃設禁航禁飛區、布雷、截擊、斷纜</td></tr>
+<tr><td>範圍</td><td>可局部，例如單一港口或能源船</td><td>全面切斷海空交通與資訊網路</td></tr>
+<tr><td>法律定位</td><td>北京宣稱為內政執法</td><td>國際法上之戰爭行為</td></tr>
+<tr><td>演習中的徵候</td><td>2024B 海警 4 編隊環台巡查；金門海域常態化進入</td><td>海峽雷霆、正義使命的封港、斷航與打擊港口能源演練</td></tr>
+</tbody></table></div>
+</div>
+
+<figure class="doc" id="fig6"><div class="scroll"><svg viewBox="0 0 760 392" role="img" aria-label="聯合封控層次概念圖"><ellipse class="ring1" cx="380" cy="200" rx="356" ry="186"/><ellipse class="ring2" cx="380" cy="214" rx="262" ry="140"/><ellipse class="ring3" cx="380" cy="230" rx="172" ry="94"/><ellipse class="ring4" cx="380" cy="246" rx="86" ry="44"/><text class="d-ac" x="380" y="40" text-anchor="middle">外線懾阻・反介入</text><text class="d-ts" x="380" y="58" text-anchor="middle">航艦編隊於台灣以東、遠海長航、第一島鏈以外兵力</text><text class="d-ac" x="380" y="98" text-anchor="middle">海空封控</text><text class="d-ts" x="380" y="116" text-anchor="middle">封控要港要域、管制航道、截擊驅離、布雷</text><text class="d-ac" x="380" y="160" text-anchor="middle">海警執法隔離</text><text class="d-ts" x="380" y="178" text-anchor="middle">識別查證、登臨檢查、扣押、宣示管轄</text><text class="d-th" x="380" y="242" text-anchor="middle">台灣本島</text><text class="d-ts" x="380" y="262" text-anchor="middle">能源・資訊斷鏈</text><text class="d-ts" x="24" y="372" text-anchor="start">貫穿各層：網攻、電戰、海底電纜破壞、認知作戰</text></svg></div>
+<figcaption><b>圖 6</b>「聯合封控」的層次概念：由外線懾阻到海警執法，最內層為對台灣本島的能源與資訊斷鏈（本報告綜整之概念圖）。</figcaption></figure>
+
+<div class="col">
+<h3>3.2 封鎖區塊與關鍵目標</h3>
+<p><span class="tag fact">事實</span>歷次演習劃設的區塊集中在台灣北部基隆與台北港外海、東部宜蘭與花蓮外海、南部巴士海峽與高雄外海，以及海峽中部，等於覆蓋台灣主要商港與東部戰略縱深。航艦編隊則部署在台灣以東，用以演練阻斷外軍增援。<sup><a href="#r9">9</a><a href="#r10">10</a><a href="#r11">11</a></sup> 「海峽雷霆-2025A」更以遠程火力模擬打擊港口與能源設施，中國官媒形容其目的是切斷資源輸入線、出逃路線與外部支援線。<sup><a href="#r12">12</a></sup></p>
+</div>
+
+<figure class="doc map" id="fig7"><div class="scroll"><svg viewBox="0 0 719 711" role="img" aria-label="解放軍封鎖台灣示意圖">
+<rect class="sea" x="0" y="0" width="719" height="711"/>
+<line class="grid" x1="116.0" y1="0" x2="116.0" y2="711"/>
+<text class="m-g" x="119.0" y="705">119°E</text>
+<line class="grid" x1="232.0" y1="0" x2="232.0" y2="711"/>
+<text class="m-g" x="235.0" y="705">120°E</text>
+<line class="grid" x1="348.0" y1="0" x2="348.0" y2="711"/>
+<text class="m-g" x="351.0" y="705">121°E</text>
+<line class="grid" x1="464.0" y1="0" x2="464.0" y2="711"/>
+<text class="m-g" x="467.0" y="705">122°E</text>
+<line class="grid" x1="580.0" y1="0" x2="580.0" y2="711"/>
+<text class="m-g" x="583.0" y="705">123°E</text>
+<line class="grid" x1="696.0" y1="0" x2="696.0" y2="711"/>
+<text class="m-g" x="699.0" y="705">124°E</text>
+<line class="grid" x1="0" y1="584.1" x2="719" y2="584.1"/>
+<text class="m-g" x="4" y="580.1">22°N</text>
+<line class="grid" x1="0" y1="457.1" x2="719" y2="457.1"/>
+<text class="m-g" x="4" y="453.1">23°N</text>
+<line class="grid" x1="0" y1="330.1" x2="719" y2="330.1"/>
+<text class="m-g" x="4" y="326.1">24°N</text>
+<line class="grid" x1="0" y1="203.2" x2="719" y2="203.2"/>
+<text class="m-g" x="4" y="199.2">25°N</text>
+<line class="grid" x1="0" y1="76.2" x2="719" y2="76.2"/>
+<text class="m-g" x="4" y="72.2">26°N</text>
+<polygon class="cn" points="464.0,-419.0 452.4,-304.7 417.6,-241.3 371.2,-190.5 324.8,-127.0 290.0,-76.2 255.2,-25.4 220.4,0.0 197.2,38.1 185.6,76.2 208.8,127.0 185.6,152.4 139.2,177.8 104.4,215.9 69.6,254.0 23.2,266.7 -11.6,304.7 -58.0,355.5 -104.4,393.6 -150.8,419.0 -197.2,457.1 -278.4,482.5 -371.2,507.9 -440.8,546.0 -522.0,558.7 -696.0,609.5 -870.0,673.0 -870.0,-685.7 580.0,-685.7"/>
+<polygon class="tw" points="410.6,165.1 435.0,184.1 464.0,201.9 446.6,234.9 447.8,255.2 419.9,332.7 392.1,444.4 365.4,488.9 336.4,539.7 330.6,596.8 316.7,593.0 299.3,537.1 263.3,507.9 243.6,457.1 249.4,408.9 252.9,368.2 276.1,317.4 290.0,295.9 303.9,276.8 330.6,241.3 338.7,222.2 359.6,196.8 394.4,180.3"/>
+<polygon class="tw" points="176.3,368.2 194.9,373.3 197.2,391.1 179.8,393.6"/>
+<circle class="tw" cx="40.6" cy="273.0" r="4"/>
+<circle class="tw" cx="226.2" cy="55.9" r="3"/>
+<circle class="tw" cx="411.8" cy="577.7" r="2.5"/>
+<polygon class="jp" points="574.2,270.5 585.8,269.2 585.8,275.5 574.2,275.5"/>
+<text class="m-s" x="591.8" y="277.0" text-anchor="start">與那國島（日）</text>
+<rect class="zone" x="396.0" y="81.9" width="78" height="52" rx="4"/>
+<text class="m-z" x="435.0" y="111.9" text-anchor="middle">北部</text>
+<text class="m-s" x="435.0" y="149.9" text-anchor="middle">基隆外海</text>
+<rect class="zone" x="506.20000000000005" y="259.7" width="78" height="52" rx="4"/>
+<text class="m-z" x="545.2" y="289.7" text-anchor="middle">東北</text>
+<text class="m-s" x="545.2" y="327.7" text-anchor="middle">宜蘭外海</text>
+<rect class="zone" x="512.0" y="405.7" width="78" height="52" rx="4"/>
+<text class="m-z" x="551.0" y="435.7" text-anchor="middle">東部</text>
+<text class="m-s" x="551.0" y="473.7" text-anchor="middle">花蓮外海</text>
+<rect class="zone" x="378.6" y="615.2" width="78" height="52" rx="4"/>
+<text class="m-z" x="417.6" y="645.2" text-anchor="middle">南部</text>
+<text class="m-s" x="417.6" y="683.2" text-anchor="middle">巴士海峽</text>
+<rect class="zone" x="140.8" y="501.0" width="78" height="52" rx="4"/>
+<text class="m-z" x="179.8" y="531.0" text-anchor="middle">西南</text>
+<text class="m-s" x="179.8" y="569.0" text-anchor="middle">高雄外海</text>
+<rect class="zone" x="111.80000000000001" y="202.6" width="78" height="52" rx="4"/>
+<text class="m-z" x="150.8" y="232.6" text-anchor="middle">中部</text>
+<text class="m-s" x="150.8" y="270.6" text-anchor="middle">海峽中線附近</text>
+<rect class="zone" x="245.2" y="62.900000000000006" width="78" height="52" rx="4"/>
+<text class="m-z" x="284.2" y="92.9" text-anchor="middle">西北</text>
+<text class="m-s" x="284.2" y="130.9" text-anchor="middle">台北港外海</text>
+<path class="cv" d="M641.4 507.9 l14 -8 l14 8 l-14 8z"/>
+<text class="m-s" x="655.4" y="531.9" text-anchor="middle">航艦編隊</text>
+<text class="m-s" x="655.4" y="547.9" text-anchor="middle">（台灣以東）</text>
+<ellipse class="ccg" cx="342.2" cy="374.6" rx="157" ry="286"/>
+<text class="m-s" x="69.6" y="634.9" text-anchor="start">虛線：海警「執法巡查」環線（示意）</text>
+<path class="impact" d="M234.8 155.7 l6 6 m0 -6 l-6 6"/>
+<circle class="port" cx="433.8" cy="185.4" r="4.5"/><text class="m-s" x="441.8" y="189.4" text-anchor="start">基隆港</text>
+<circle class="port" cx="392.1" cy="182.8" r="4.5"/><text class="m-s" x="384.1" y="176.8" text-anchor="end">台北港</text>
+<circle class="port" cx="290.0" cy="294.6" r="4.5"/><text class="m-s" x="298.0" y="286.6" text-anchor="start">台中港／LNG</text>
+<circle class="port" cx="264.5" cy="507.9" r="4.5"/><text class="m-s" x="256.5" y="511.9" text-anchor="end">高雄港</text>
+<circle class="energy" cx="261.0" cy="480.0" r="4.5"/><text class="m-s" x="253.0" y="474.0" text-anchor="end">永安LNG</text>
+<circle class="port" cx="421.1" cy="330.1" r="4.5"/><text class="m-s" x="429.1" y="334.1" text-anchor="start">花蓮港</text>
+<circle class="port" cx="447.8" cy="254.0" r="4.5"/><text class="m-s" x="455.8" y="258.0" text-anchor="start">蘇澳港</text>
+<text class="m-b" x="342.2" y="374.6" text-anchor="middle">台灣</text>
+<text class="m-b" x="116.0" y="88.9" text-anchor="middle">福建</text>
+<text class="m-s" x="185.6" y="408.9" text-anchor="middle">澎湖</text>
+<text class="m-s" x="40.6" y="263.0" text-anchor="middle">金門</text>
+<text class="m-s" x="234.2" y="59.9" text-anchor="start">馬祖</text>
+<text class="m-s" x="417.8" y="581.7" text-anchor="start">蘭嶼</text>
+<text class="m-g" x="626.4" y="88.9" text-anchor="middle">東海</text>
+<text class="m-g" x="626.4" y="660.3" text-anchor="middle">菲律賓海</text>
+</svg></div>
+<div class="maplegend"><span><span class="sw" style="background:var(--accent-tint);border-color:var(--accent)"></span>演習區塊（示意位置）</span><span><span class="sw" style="background:var(--paper);border-color:var(--tw);border-radius:50%"></span>主要商港</span><span><span class="sw" style="background:var(--est);border-radius:50%"></span>LNG 接收站</span><span>✕ 2025-12 火箭彈落點方位（示意）</span></div>
+<figcaption><b>圖 7</b>環台封鎖態勢示意圖。區塊位置依 2024 年至 2025 年歷次演習公布範圍綜整繪製，僅示相對方位，非精確座標。</figcaption></figure>
+
+<div class="col">
+<h3>3.3 封鎖的運作順序（推估）</h3>
+<ol>
+<li><span class="tag est">推估</span>以「演習」或「執法」名義宣布管制區，海警先行登檢，測試國際反應。</li>
+<li>擴大為封控要港要域，以艦機在主要港口外海與航道建立攔截線，並以航艦編隊在台灣以東實施外線懾阻。</li>
+<li>同步以網攻、電戰、破壞海底電纜削弱通訊；以模擬或實際打擊港口、能源設施施壓。</li>
+<li>視情況奪取外島，或轉入聯合火力打擊與登島作戰。<sup><a href="#r5">5</a><a href="#r8">8</a><a href="#r12">12</a></sup></li>
+</ol>
+<p class="note">海警在金門海域的動作可視為「執法管轄」的試點。2024 年 2 月起中國海警常態進入金門限制、禁止水域，同年 5 月單月達 11 艘次，且常關閉 AIS。<sup><a href="#r26">26</a></sup></p>
+
+<h2 id="c4"><span class="no">第四章</span>航渡規劃</h2>
+<p><span class="tag off">官方評估</span>美國國防部描述，聯合島嶼登陸戰役須協調電戰、後勤、空中與海上支援，目標是突破或繞過岸防、建立灘頭陣地、沿台灣西岸累積戰力，並奪取關鍵目標或全島。<sup><a href="#r6">6</a></sup> 台灣國防部亦指出，登陸作戰是共軍最複雜的軍事行動之一，須同時達成多點登陸、維持制空制海，並持續投送後續兵力與戰略物資。<sup><a href="#r1">1</a></sup></p>
+
+<h3>4.1 出發地域與航渡距離</h3>
+<p><span class="tag calc">本報告推算</span>海峽最窄處（平潭至新竹）約 130 公里，福建主要港口至台灣西岸約 150 至 200 公里。以登陸艦船編隊航速 10 至 12 節（每小時約 18 至 22 公里）計算，單程約需 7 至 11 小時，加上集結、編隊與換乘，實際暴露時間更長；船團航渡期間須面對岸置反艦飛彈、水雷與無人艇威脅。</p>
+<p><span class="tag est">推估</span>出發地域除福建沿海港口外，舟山、寧波一帶為東部戰區海軍主要基地；南部戰區的汕頭及湛江一帶則有兩棲艦隊與駁船試驗。Ian Easton 指出台灣僅 14 處適合大規模登陸的「紅色海灘」，台灣陸軍近年也在桃園、台中、台南等地的灘岸實施反登陸演練。<sup><a href="#r27">27</a><a href="#r28">28</a></sup></p>
+</div>
+
+<figure class="doc map" id="fig8"><div class="scroll"><svg viewBox="0 0 691 733" role="img" aria-label="航渡規劃示意圖">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ahead"/></marker></defs>
+<rect class="sea" x="0" y="0" width="691" height="733"/>
+<line class="grid" x1="43.2" y1="0" x2="43.2" y2="733"/>
+<text class="m-g" x="46.2" y="727">117°E</text>
+<line class="grid" x1="151.2" y1="0" x2="151.2" y2="733"/>
+<text class="m-g" x="154.2" y="727">118°E</text>
+<line class="grid" x1="259.2" y1="0" x2="259.2" y2="733"/>
+<text class="m-g" x="262.2" y="727">119°E</text>
+<line class="grid" x1="367.2" y1="0" x2="367.2" y2="733"/>
+<text class="m-g" x="370.2" y="727">120°E</text>
+<line class="grid" x1="475.2" y1="0" x2="475.2" y2="733"/>
+<text class="m-g" x="478.2" y="727">121°E</text>
+<line class="grid" x1="583.2" y1="0" x2="583.2" y2="733"/>
+<text class="m-g" x="586.2" y="727">122°E</text>
+<line class="grid" x1="0" y1="709.3" x2="691" y2="709.3"/>
+<text class="m-g" x="4" y="705.3">22°N</text>
+<line class="grid" x1="0" y1="591.1" x2="691" y2="591.1"/>
+<text class="m-g" x="4" y="587.1">23°N</text>
+<line class="grid" x1="0" y1="472.9" x2="691" y2="472.9"/>
+<text class="m-g" x="4" y="468.9">24°N</text>
+<line class="grid" x1="0" y1="354.7" x2="691" y2="354.7"/>
+<text class="m-g" x="4" y="350.7">25°N</text>
+<line class="grid" x1="0" y1="236.4" x2="691" y2="236.4"/>
+<text class="m-g" x="4" y="232.4">26°N</text>
+<line class="grid" x1="0" y1="118.2" x2="691" y2="118.2"/>
+<text class="m-g" x="4" y="114.2">27°N</text>
+<polygon class="cn" points="583.2,-224.6 572.4,-118.2 540.0,-59.1 496.8,-11.8 453.6,47.3 421.2,94.6 388.8,141.9 356.4,165.5 334.8,201.0 324.0,236.4 345.6,283.7 324.0,307.4 280.8,331.0 248.4,366.5 216.0,402.0 172.8,413.8 140.4,449.2 97.2,496.5 54.0,532.0 10.8,555.6 -32.4,591.1 -108.0,614.7 -194.4,638.4 -259.2,673.9 -334.8,685.7 -496.8,733.0 -658.8,792.1 -658.8,-472.9 691.2,-472.9"/>
+<polygon class="tw" points="533.5,319.2 556.2,336.9 583.2,353.5 567.0,384.2 568.1,403.1 542.2,475.2 516.2,579.3 491.4,620.7 464.4,667.9 459.0,721.1 446.0,717.6 429.8,665.6 396.4,638.4 378.0,591.1 383.4,546.2 386.6,508.3 408.2,461.1 421.2,441.0 434.2,423.2 459.0,390.1 466.6,372.4 486.0,348.8 518.4,333.4"/>
+<polygon class="tw" points="315.4,508.3 332.6,513.1 334.8,529.6 318.6,532.0"/>
+<circle class="tw" cx="189.0" cy="419.7" r="4"/>
+<circle class="tw" cx="361.8" cy="217.5" r="3"/>
+<circle class="tw" cx="534.6" cy="703.4" r="2.5"/>
+<path class="lane lane-N" d="M340.2 224.6 Q413.1 268.1 486.0 347.6" marker-end="url(#ah)"/>
+<path class="lane lane-C" d="M347.8 295.6 Q387.2 349.7 426.6 439.8" marker-end="url(#ah)"/>
+<path class="lane lane-C" d="M264.6 336.9 Q342.9 372.1 421.2 443.3" marker-end="url(#ah)"/>
+<path class="lane lane-S" d="M167.4 419.7 Q273.8 486.2 380.2 588.7" marker-end="url(#ah)"/>
+<path class="lane lane-S" d="M16.2 555.6 Q198.2 556.5 380.2 593.5" marker-end="url(#ah)"/>
+<path class="lane lane-P" d="M216.0 390.1 Q270.0 437.2 324.0 520.2" marker-end="url(#ah)"/>
+<circle class="emb" cx="329.4" cy="224.6" r="6"/><text class="m-s" x="319.4" y="228.6" text-anchor="end">福州／連江</text>
+<circle class="emb" cx="345.6" cy="295.6" r="6"/><text class="m-s" x="335.6" y="299.6" text-anchor="end">平潭</text>
+<circle class="emb" cx="264.6" cy="331.0" r="6"/><text class="m-s" x="254.6" y="335.0" text-anchor="end">莆田（湄洲灣）</text>
+<circle class="emb" cx="221.4" cy="384.2" r="6"/><text class="m-s" x="211.4" y="384.2" text-anchor="end">泉州</text>
+<circle class="emb" cx="162.0" cy="413.8" r="6"/><text class="m-s" x="152.0" y="423.8" text-anchor="end">廈門</text>
+<circle class="emb" cx="16.2" cy="553.3" r="6"/><text class="m-s" x="24.2" y="543.3" text-anchor="start">汕頭（南部戰區）</text>
+<rect class="beach" x="480.0" y="341.6" width="12" height="12" transform="rotate(45 486.0 347.6)"/>
+<text class="m-r" x="490.0" y="331.6" text-anchor="start">桃園（觀音、竹圍）</text>
+<rect class="beach" x="415.2" y="437.3" width="12" height="12" transform="rotate(45 421.2 443.3)"/>
+<text class="m-r" x="431.2" y="447.3" text-anchor="start">台中（草湳、大安）</text>
+<rect class="beach" x="374.2" y="585.1" width="12" height="12" transform="rotate(45 380.2 591.1)"/>
+<text class="m-r" x="390.2" y="599.1" text-anchor="start">台南（西海岸）</text>
+<line class="meas" x1="345.6" y1="301.5" x2="469.8" y2="372.4"/>
+<text class="m-s" x="680.4" y="130.0" text-anchor="end">虛線：平潭至新竹</text>
+<text class="m-r" x="680.4" y="148.0" text-anchor="end">海峽最窄處約 130 公里</text>
+<text class="m-s" x="680.4" y="23.6" text-anchor="end">↑ 舟山／寧波（圖外）</text>
+<text class="m-s" x="680.4" y="39.6" text-anchor="end">東部戰區海軍主要基地</text>
+<text class="m-b" x="469.8" y="514.3" text-anchor="middle">台灣</text>
+<text class="m-b" x="172.8" y="165.5" text-anchor="middle">福建</text>
+<text class="m-b" x="302.4" y="47.3" text-anchor="middle">浙江</text>
+<text class="m-s" x="307.4" y="524.2" text-anchor="end">澎湖</text>
+<text class="m-s" x="195.0" y="411.7" text-anchor="start">金門</text>
+<text class="m-s" x="369.8" y="221.5" text-anchor="start">馬祖</text>
+<text class="m-s" x="43.2" y="691.6" text-anchor="start">↙ 湛江：水橋駁船 2025 試驗（圖外）</text>
+<text class="m-g" x="626.4" y="70.9" text-anchor="middle">東海</text>
+</svg></div>
+<div class="maplegend"><span><span class="sw" style="background:var(--accent);border-radius:50%"></span>可能出發港區</span><span><span class="sw" style="background:var(--tw)"></span>反登陸演練灘岸</span><span>→ 航渡方向示意　⋯→ 奪取澎湖</span></div>
+<figcaption><b>圖 8</b>航渡規劃示意圖。航線僅示意出發地域與登陸方向，不代表實際計畫；灘岸依台灣陸軍公開演練地點標示。</figcaption></figure>
+
+<div class="col">
+<h3>4.2 航渡與登陸程序</h3>
+<p><span class="tag est">推估</span>CIMSEC 綜整解放軍學者構想，將攻台戰役分為「火力打擊與奪取外島、渡海與首波登陸、鞏固灘頭、向台北突破」四個階段。<sup><a href="#r29">29</a></sup> 航渡本身可細分為下圖八個步驟，其中「奪取港口」是決定後續兵力能否大量投送的關鍵：民用滾裝船需要碼頭或浮動棧橋才能卸載，水橋駁船正是為了解決無港口卸載的問題。<sup><a href="#r13">13</a><a href="#r17">17</a></sup></p>
+</div>
+
+<figure class="doc" id="fig9"><div class="scroll"><svg viewBox="0 0 760 306" role="img" aria-label="渡海登陸作戰流程"><defs><marker id="a9" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ahead"/></marker></defs><rect class="d-box" x="24" y="30" width="164" height="92" rx="6"/><text class="d-th" x="36" y="56" text-anchor="start">1 集結裝載</text><text class="d-t" x="36" y="80" text-anchor="start">福建沿海港口</text><text class="d-t" x="36" y="100" text-anchor="start">民船徵用、裝載</text><line class="d-line" x1="188" y1="76" x2="206" y2="76" marker-end="url(#a9)"/><rect class="d-box" x="206" y="30" width="164" height="92" rx="6"/><text class="d-th" x="218" y="56" text-anchor="start">2 出港編隊</text><text class="d-t" x="218" y="80" text-anchor="start">夜間出港</text><text class="d-t" x="218" y="100" text-anchor="start">電戰掩護、掃雷</text><line class="d-line" x1="370" y1="76" x2="388" y2="76" marker-end="url(#a9)"/><rect class="d-box" x="388" y="30" width="164" height="92" rx="6"/><text class="d-th" x="400" y="56" text-anchor="start">3 航渡</text><text class="d-t" x="400" y="80" text-anchor="start">130～200 公里</text><text class="d-t" x="400" y="100" text-anchor="start">約 7～11 小時*</text><line class="d-line" x1="552" y1="76" x2="570" y2="76" marker-end="url(#a9)"/><rect class="d-box" x="570" y="30" width="164" height="92" rx="6"/><text class="d-th" x="582" y="56" text-anchor="start">4 換乘泛水</text><text class="d-t" x="582" y="80" text-anchor="start">兩棲車泛水</text><text class="d-t" x="582" y="100" text-anchor="start">舟波編組</text><rect class="d-box" x="24" y="180" width="164" height="92" rx="6"/><text class="d-th" x="36" y="206" text-anchor="start">8 後續梯隊</text><text class="d-t" x="36" y="230" text-anchor="start">民船循環運補</text><text class="d-t" x="36" y="250" text-anchor="start">跨海後勤線</text><line class="d-line" x1="206" y1="226" x2="188" y2="226" marker-end="url(#a9)"/><rect class="d-hi" x="206" y="180" width="164" height="92" rx="6"/><text class="d-th" x="218" y="206" text-anchor="start">7 奪港接收</text><text class="d-t" x="218" y="230" text-anchor="start">台中港、台北港</text><text class="d-t" x="218" y="250" text-anchor="start">滾裝船卸載</text><line class="d-line" x1="388" y1="226" x2="370" y2="226" marker-end="url(#a9)"/><rect class="d-box" x="388" y="180" width="164" height="92" rx="6"/><text class="d-th" x="400" y="206" text-anchor="start">6 建立灘頭</text><text class="d-t" x="400" y="230" text-anchor="start">浮動碼頭</text><text class="d-t" x="400" y="250" text-anchor="start">水橋駁船棧橋</text><line class="d-line" x1="570" y1="226" x2="552" y2="226" marker-end="url(#a9)"/><rect class="d-hi" x="570" y="180" width="164" height="92" rx="6"/><text class="d-th" x="582" y="206" text-anchor="start">5 搶灘突擊</text><text class="d-t" x="582" y="230" text-anchor="start">直升機垂直登陸</text><text class="d-t" x="582" y="250" text-anchor="start">灘岸破障</text><path class="d-line" d="M652 122 V180" marker-end="url(#a9)"/><text class="d-ts" x="24" y="296" text-anchor="start">* 本報告推算：以編隊航速 10～12 節計。紅框為決定成敗的關鍵步驟。</text></svg></div>
+<figcaption><b>圖 9</b>渡海登陸作戰流程（依美國國防部、CIMSEC 與 CMSI 分析綜整）。航渡時間為本報告推算值。</figcaption></figure>
+
+<div class="col">
+<h3>4.3 限制因素</h3>
+<ul>
+<li><span class="tag est">推估</span>CMSI 2023 年評估，解放軍的民船預備船隊至少到 2030 年前，仍可能無法在惡劣環境提供大規模登陸與岸際後勤；但若訓練品質持續提升，可能在 5 至 10 年內具備足夠規模。<sup><a href="#r15">15</a></sup></li>
+<li><span class="tag est">推估</span>Andrew Erickson 2026 年 6 月指出，2025 年的大型演練已以民用滾裝船實施兩棲車輛的離岸泛水與回收，但評估中國「尚未」解決攻台問題。<sup><a href="#r16">16</a></sup></li>
+<li><span class="tag est">推估</span>CSIS 2023 年 24 次兵推多數結果為台灣守住，但美、台、日付出數十艘艦艇、數百架飛機、數萬名人員的代價；解放軍兩棲艦隊遭受重創，在台部隊因後勤斷絕而無法擴大戰果。<sup><a href="#r30">30</a></sup></li>
+</ul>
+
+<h2 id="c5"><span class="no">第五章</span>可能運用兵力</h2>
+<p>對台作戰以東部戰區為主體，必要時抽調南部戰區兩棲兵力、空降兵軍與全國火箭軍、支援部隊。下圖依公開研究整理可能投入的兵力架構。</p>
+</div>
+
+<figure class="doc" id="fig10"><div class="scroll"><svg viewBox="0 0 760 312" role="img" aria-label="可能投入對台作戰兵力架構"><rect class="d-hi" x="250" y="16" width="260" height="52" rx="6"/><text class="d-th" x="380" y="40" text-anchor="middle">東部戰區聯合指揮部</text><text class="d-ts" x="380" y="58" text-anchor="middle">南京；對台作戰主責</text><line class="d-line" x1="380" y1="68" x2="380" y2="92"/><line class="d-line" x1="80" y1="92" x2="685" y2="92"/><line class="d-line" x1="80" y1="92" x2="80" y2="110"/><rect class="d-box" x="24" y="110" width="112" height="168" rx="6"/><text class="d-th" x="80" y="134" text-anchor="middle">陸軍</text><text class="d-t" x="80" y="160" text-anchor="middle">第71集團軍</text><text class="d-t" x="80" y="180" text-anchor="middle">第72集團軍</text><text class="d-t" x="80" y="200" text-anchor="middle">第73集團軍</text><text class="d-t" x="80" y="220" text-anchor="middle">兩棲合成旅×4</text><text class="d-t" x="80" y="240" text-anchor="middle">南部戰區74軍</text><text class="d-t" x="80" y="260" text-anchor="middle">另2旅可支援</text><line class="d-line" x1="201" y1="92" x2="201" y2="110"/><rect class="d-box" x="145" y="110" width="112" height="168" rx="6"/><text class="d-th" x="201" y="134" text-anchor="middle">海軍</text><text class="d-t" x="201" y="160" text-anchor="middle">東部戰區海軍</text><text class="d-t" x="201" y="180" text-anchor="middle">海軍陸戰隊</text><text class="d-t" x="201" y="200" text-anchor="middle">兩棲艦隊</text><text class="d-t" x="201" y="220" text-anchor="middle">驅護艦、潛艦</text><text class="d-t" x="201" y="240" text-anchor="middle">航艦編隊</text><text class="d-t" x="201" y="260" text-anchor="middle">（山東、福建）</text><line class="d-line" x1="322" y1="92" x2="322" y2="110"/><rect class="d-box" x="266" y="110" width="112" height="168" rx="6"/><text class="d-th" x="322" y="134" text-anchor="middle">空軍</text><text class="d-t" x="322" y="160" text-anchor="middle">東部戰區空軍</text><text class="d-t" x="322" y="180" text-anchor="middle">空降兵軍</text><text class="d-t" x="322" y="200" text-anchor="middle">運輸機、直升機</text><text class="d-t" x="322" y="220" text-anchor="middle">轟炸機、預警機</text><line class="d-line" x1="443" y1="92" x2="443" y2="110"/><rect class="d-box" x="387" y="110" width="112" height="168" rx="6"/><text class="d-th" x="443" y="134" text-anchor="middle">火箭軍</text><text class="d-t" x="443" y="160" text-anchor="middle">常規導彈旅</text><text class="d-t" x="443" y="180" text-anchor="middle">短中程彈道</text><text class="d-t" x="443" y="200" text-anchor="middle">巡弋飛彈</text><text class="d-t" x="443" y="220" text-anchor="middle">陸軍遠程火箭</text><text class="d-t" x="443" y="240" text-anchor="middle">（PCH191）</text><line class="d-line" x1="564" y1="92" x2="564" y2="110"/><rect class="d-box" x="508" y="110" width="112" height="168" rx="6"/><text class="d-th" x="564" y="134" text-anchor="middle">支援部隊</text><text class="d-t" x="564" y="160" text-anchor="middle">信息支援部隊</text><text class="d-t" x="564" y="180" text-anchor="middle">網絡空間部隊</text><text class="d-t" x="564" y="200" text-anchor="middle">軍事航天部隊</text><text class="d-t" x="564" y="220" text-anchor="middle">聯勤保障部隊</text><line class="d-line" x1="685" y1="92" x2="685" y2="110"/><rect class="d-tw" x="629" y="110" width="112" height="168" rx="6"/><text class="d-th" x="685" y="134" text-anchor="middle">海警・民兵</text><text class="d-t" x="685" y="160" text-anchor="middle">中國海警</text><text class="d-t" x="685" y="180" text-anchor="middle">海上民兵</text><text class="d-t" x="685" y="200" text-anchor="middle">徵用民船</text><text class="d-t" x="685" y="220" text-anchor="middle">滾裝船船隊</text><text class="d-ts" x="24" y="300" text-anchor="start">兩棲合成旅：第72、73集團軍各2旅（東部戰區），第74集團軍2旅（南部戰區）。藍框為非軍隊但可能參與封鎖的力量。</text></svg></div>
+<figcaption><b>圖 10</b>可能投入對台作戰的兵力架構（依 CMSI、美國國防部與公開報導整理；部分單位隸屬依 2017 年軍改後資料，可能已有調整）。</figcaption></figure>
+
+<div class="col">
+<div class="tbl"><table>
+<thead><tr><th>兵力</th><th>公開資訊</th><th>可能任務</th></tr></thead>
+<tbody>
+<tr><td>陸軍兩棲合成旅</td><td><span class="tag est">推估</span>共 6 個，分屬第 72、73（東部戰區）與第 74 集團軍（南部戰區）。<sup><a href="#r31">31</a></sup></td><td>首波搶灘、建立灘頭</td></tr>
+<tr><td>第 71 集團軍與重型合成旅</td><td><span class="tag fact">事實</span>東部戰區轄第 71、72、73 集團軍，陸軍司令部位於福州。<sup><a href="#r32">32</a></sup></td><td>後續梯隊、向縱深推進</td></tr>
+<tr><td>海軍陸戰隊</td><td><span class="tag est">推估</span>多個陸戰旅，可由 075 型艦以直升機實施垂直登陸。</td><td>奪取外島、港口、要點</td></tr>
+<tr><td>兩棲艦隊</td><td><span class="tag fact">事實</span>075 型 4 艘、071 型 8 艘，076 型海試中，另有大量中小型登陸艦。<sup><a href="#r19">19</a><a href="#r20">20</a></sup></td><td>首波投送</td></tr>
+<tr><td>民用船隊</td><td><span class="tag fact">事實</span>滾裝船、甲板貨船定期參加演練，部分隸屬海上民兵編組。<sup><a href="#r15">15</a></sup></td><td>後續梯隊與物資</td></tr>
+<tr><td>火箭軍與遠程火箭</td><td><span class="tag est">推估</span>美方報告評論提及 PCH191 遠程火箭與 FD280 彈道飛彈涵蓋全台。<sup><a href="#r4">4</a></sup></td><td>首波火力打擊、封港</td></tr>
+<tr><td>空軍與空降兵軍</td><td><span class="tag est">推估</span>東部戰區空軍與空降兵軍、空中突擊旅。</td><td>奪取制空、機場與縱深要點</td></tr>
+<tr><td>海警與海上民兵</td><td><span class="tag fact">事實</span>2024B 起以編隊環台巡查，常態進入金門水域。<sup><a href="#r9">9</a><a href="#r26">26</a></sup></td><td>隔離、登檢、灰色地帶施壓</td></tr>
+</tbody></table></div>
+
+<h3>5.1 投送運量估計</h3>
+<p><span class="tag est">推估</span>各方對首波運量的估計差異很大，關鍵在於是否計入民船與統計時段。分析師 Tom Shugart 估計軍用兩棲艦首波約可投送 2.1 萬人與一個重型旅的裝備；Dupuy Institute 逐艦計算約 2.17 萬人，並認為 2 萬人是上限。計入民船後首波約 6 萬人、8 個以上重型旅裝備，約 10 天內累計約 30 萬人。<sup><a href="#r17">17</a><a href="#r18">18</a></sup> 台灣學者揭仲則認為首波只能使用軍用艦艇與航空器，民船須待灘頭與卸載設施建立後才能投入；2026 年 RealClearDefense 一文更主張兩棲艦的人員與車輛運量是二擇一，海軍最大運量僅約一個旅。<sup><a href="#r17">17</a><a href="#r33">33</a></sup></p>
+</div>
+
+<figure class="doc" id="fig11"><div class="scroll"><svg viewBox="0 0 760 220" role="img" aria-label="兩棲投送人數公開估計"><line class="grid" x1="220.0" y1="20" x2="220.0" y2="168"/><text class="d-ts" x="220.0" y="186" text-anchor="middle">0</text><line class="grid" x1="380.0" y1="20" x2="380.0" y2="168"/><text class="d-ts" x="380.0" y="186" text-anchor="middle">10 萬</text><line class="grid" x1="540.0" y1="20" x2="540.0" y2="168"/><text class="d-ts" x="540.0" y="186" text-anchor="middle">20 萬</text><line class="grid" x1="700.0" y1="20" x2="700.0" y2="168"/><text class="d-ts" x="700.0" y="186" text-anchor="middle">30 萬</text><text class="d-t" x="206" y="54" text-anchor="end">軍用兩棲艦首波</text><rect class="bar" x="220" y="34" width="33.6" height="28" rx="2"/><text class="d-th" x="261.6" y="53" text-anchor="start">約 2.1 萬（2～2.5 萬）</text><text class="d-t" x="206" y="100" text-anchor="end">軍民船合計首波</text><rect class="bar2" x="220" y="80" width="96.0" height="28" rx="2"/><text class="d-th" x="324.0" y="99" text-anchor="start">約 6 萬</text><text class="d-t" x="206" y="146" text-anchor="end">約 10 天累計（含民船）</text><rect class="bar3" x="220" y="126" width="480.0" height="28" rx="2"/><text class="d-th" x="692.0" y="145" text-anchor="end">約 30 萬</text><text class="d-ts" x="24" y="210" text-anchor="start">來源：Tom Shugart、Dupuy Institute 估計（見參考資料 17、18）；人數，非裝備噸位。</text></svg></div>
+<figcaption><b>圖 11</b>公開估計的兩棲投送人數（三項數字的統計時段不同，不宜直接比較）。</figcaption></figure>
+
+<div class="col">
+<h2 id="c7"><span class="no">第六章</span>登陸後縱深作戰可能行動</h2>
+<p>登陸成功只是攻台作戰的中段。解放軍上岸後須在台灣守軍集中反擊前擴大登陸場、取得港口與機場以投送重裝與後續梯隊，再向政治中樞推進。多數公開研究認為，這一階段比搶灘本身更困難。</p>
+
+<h3>6.1 作戰目標與階段</h3>
+<p><span class="tag est">推估</span>CIMSEC「Island Blitz」依解放軍學者構想，將最後階段描述為「突破、推進並奪取台北」，終局目標是攻占首都，同時阻止台北以南的國軍反擊；其假設北京會追求速戰，認為台北一旦失陷，美國立即介入的可信度就會下降，因此避免長期圍城。<sup><a href="#r29">29</a></sup></p>
+</div>
+
+<figure class="doc" id="fig12"><div class="scroll"><svg viewBox="0 0 760 226" role="img" aria-label="登陸後縱深作戰階段"><defs><marker id="a12" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ahead"/></marker></defs><rect class="d-box" x="24" y="40" width="112" height="112" rx="6"/><text class="d-ts" x="80" y="30" text-anchor="middle">階段 1</text><text class="d-th" x="80" y="72" text-anchor="middle">鞏固灘頭</text><text class="d-t" x="80" y="98" text-anchor="middle">擴大登陸場</text><text class="d-t" x="80" y="116" text-anchor="middle">防反擊</text><line class="d-line" x1="136" y1="96" x2="146" y2="96" marker-end="url(#a12)"/><rect class="d-hi" x="146" y="40" width="112" height="112" rx="6"/><text class="d-ts" x="202" y="30" text-anchor="middle">階段 2</text><text class="d-th" x="202" y="72" text-anchor="middle">奪港奪機場</text><text class="d-t" x="202" y="98" text-anchor="middle">空降</text><text class="d-t" x="202" y="116" text-anchor="middle">空突配合</text><line class="d-line" x1="258" y1="96" x2="268" y2="96" marker-end="url(#a12)"/><rect class="d-box" x="268" y="40" width="112" height="112" rx="6"/><text class="d-ts" x="324" y="30" text-anchor="middle">階段 3</text><text class="d-th" x="324" y="72" text-anchor="middle">行政下卸</text><text class="d-t" x="324" y="98" text-anchor="middle">民船</text><text class="d-t" x="324" y="116" text-anchor="middle">重裝上岸</text><line class="d-line" x1="380" y1="96" x2="390" y2="96" marker-end="url(#a12)"/><rect class="d-box" x="390" y="40" width="112" height="112" rx="6"/><text class="d-ts" x="446" y="30" text-anchor="middle">階段 4</text><text class="d-th" x="446" y="72" text-anchor="middle">突破推進</text><text class="d-t" x="446" y="98" text-anchor="middle">沿西部走廊</text><text class="d-t" x="446" y="116" text-anchor="middle">阻斷南北</text><line class="d-line" x1="502" y1="96" x2="512" y2="96" marker-end="url(#a12)"/><rect class="d-hi" x="512" y="40" width="112" height="112" rx="6"/><text class="d-ts" x="568" y="30" text-anchor="middle">階段 5</text><text class="d-th" x="568" y="72" text-anchor="middle">包圍首都</text><text class="d-t" x="568" y="98" text-anchor="middle">城鎮戰</text><text class="d-t" x="568" y="116" text-anchor="middle">斬首</text><text class="d-t" x="568" y="134" text-anchor="middle">癱瘓指揮</text><line class="d-line" x1="624" y1="96" x2="634" y2="96" marker-end="url(#a12)"/><rect class="d-box" x="634" y="40" width="112" height="112" rx="6"/><text class="d-ts" x="690" y="30" text-anchor="middle">階段 6</text><text class="d-th" x="690" y="72" text-anchor="middle">綏靖控制</text><text class="d-t" x="690" y="98" text-anchor="middle">要點</text><text class="d-t" x="690" y="116" text-anchor="middle">媒體</text><text class="d-t" x="690" y="134" text-anchor="middle">基礎設施</text><rect class="d-tw" x="24" y="170" width="722" height="44" rx="6"/><text class="d-twt" x="385" y="197" text-anchor="middle">國軍應對：灘後縱深決勝、濱海城鎮逐次遲滯、阻絕港口機場、反擊集中、全社會韌性</text></svg></div>
+<figcaption><b>圖 12</b>登陸後縱深作戰的可能階段，以及國軍的對應構想（依 CIMSEC、國防部《後備半年刊》與兵推分析綜整）。紅框為關鍵步驟。</figcaption></figure>
+
+<div class="col">
+<h3>6.2 奪取港口與機場</h3>
+<p><span class="tag est">推估</span>國防部《後備半年刊》以桃園機場為例的反空降研究指出，共軍可能以空降配合兩棲登陸，攻占港口、機場後實施「行政下卸」，以大規模且迅速地增長兵力；另一篇研究則認為桃園鄰近台北中樞，是共軍最可能的登陸地區。<sup><a href="#r37">37</a></sup> <span class="tag fact">事實</span>漢光 39 號（2023 年）首度將桃園機場反空降納入演練科目；2026 年 6 月國軍亦在桃園機場周邊與重要港口實施「立即備戰操演」，模擬敵特工滲透。<sup><a href="#r37">37</a><a href="#r42">42</a></sup></p>
+<p><span class="tag est">推估</span>台灣國防部一次公開報導的桌上推演中，假想共軍在台東卑南溪至知本溪間搶灘、奪取台 11 線橋梁並空降台東機場，另有部隊登陸花蓮、宜蘭，並以空降部隊奪取澎湖機場一帶，顯示東部與外島也是可能的縱深切入方向。<sup><a href="#r36">36</a></sup></p>
+
+<h3>6.3 推進方向</h3>
+<ul>
+<li><b>北部軸線</b>：由桃園灘頭與台北港向桃園機場、林口台地推進，進逼台北。國軍演習長期將淡水河口、台北港、八里海灘視為首都防衛的重要戰線。<sup><a href="#r37">37</a></sup></li>
+<li><b>中部軸線</b>：奪取台中港與清泉崗機場後，沿西部走廊南北推進，切斷南北交通，阻止南部國軍北上反擊。</li>
+<li><b>間接路線</b>：<span class="tag est">推估</span>2026 年 RealClearDefense 一文以模型測試 9 種情境，認為台灣港口防護嚴密，解放軍需採間接路線，最可能選擇台中與台南之間防守較弱的嘉義地區。<sup><a href="#r33">33</a></sup></li>
+</ul>
+</div>
+
+<figure class="doc map" id="fig13"><div class="scroll"><svg viewBox="0 0 570 759" role="img" aria-label="登陸後縱深作戰可能行動示意圖">
+<defs><marker id="ac" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ahead"/></marker><marker id="ab" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="bhead"/></marker></defs>
+<rect class="sea" x="0" y="0" width="570" height="759"/>
+<line class="grid" x1="133.0" y1="0" x2="133.0" y2="759"/>
+<text class="m-g" x="136.0" y="753">120°E</text>
+<line class="grid" x1="323.0" y1="0" x2="323.0" y2="759"/>
+<text class="m-g" x="326.0" y="753">121°E</text>
+<line class="grid" x1="513.0" y1="0" x2="513.0" y2="759"/>
+<text class="m-g" x="516.0" y="753">122°E</text>
+<line class="grid" x1="0" y1="717.5" x2="570" y2="717.5"/>
+<text class="m-g" x="4" y="713.5">22°N</text>
+<line class="grid" x1="0" y1="509.6" x2="570" y2="509.6"/>
+<text class="m-g" x="4" y="505.6">23°N</text>
+<line class="grid" x1="0" y1="301.6" x2="570" y2="301.6"/>
+<text class="m-g" x="4" y="297.6">24°N</text>
+<line class="grid" x1="0" y1="93.6" x2="570" y2="93.6"/>
+<text class="m-g" x="4" y="89.6">25°N</text>
+<polygon class="tw" points="425.6,31.2 465.5,62.4 513.0,91.5 484.5,145.6 486.4,178.9 440.8,305.7 395.2,488.8 351.5,561.5 304.0,644.7 294.5,738.3 271.7,732.1 243.2,640.6 184.3,592.7 152.0,509.6 161.5,430.5 167.2,364.0 205.2,280.8 228.0,245.4 250.8,214.2 294.5,156.0 307.8,124.8 342.0,83.2 399.0,56.2"/>
+<polygon class="tw" points="41.8,364.0 72.2,372.3 76.0,401.4 47.5,405.6"/>
+<circle class="tw" cx="-180.5" cy="208.0" r="4"/>
+<circle class="tw" cx="123.5" cy="-147.7" r="3"/>
+<circle class="tw" cx="427.5" cy="707.1" r="2.5"/>
+<polygon class="mtn" points="427.5,145.6 408.5,239.2 380.0,364.0 342.0,488.8 304.0,592.7 285.0,655.1 269.8,623.9 281.2,509.6 304.0,384.8 332.5,270.4 370.5,187.2 399.0,135.2"/>
+<text class="m-g" x="323.0" y="395.2" text-anchor="middle">中央山脈</text>
+<ellipse class="lodg" cx="342.0" cy="81.1" rx="22" ry="14"/>
+<ellipse class="lodg" cx="228.0" cy="249.6" rx="22" ry="14"/>
+<ellipse class="lodg" cx="155.8" cy="509.6" rx="22" ry="14"/>
+<path class="push" d="M345.8 83.2 L370.5 81.1 L402.8 85.3" marker-end="url(#ac)"/>
+<path class="push" d="M395.2 62.4 L408.5 72.8 L418.0 81.1" marker-end="url(#ac)"/>
+<path class="push" d="M237.5 239.2 L285.0 172.6 L313.5 139.3" marker-end="url(#ac)"/>
+<path class="push dash" d="M228.0 260.0 L218.5 332.8 L218.5 395.2" marker-end="url(#ac)"/>
+<path class="push" d="M161.5 520.0 L174.8 561.5 L186.2 584.4" marker-end="url(#ac)"/>
+<path class="push dash" d="M142.5 395.2 L190.0 405.6" marker-end="url(#ac)"/>
+<path class="push dash" d="M437.0 603.1 L370.5 567.8" marker-end="url(#ac)"/>
+<path class="para" d="M357.7 65.0 a9 9 0 0 1 18 0 z M357.7 65.0 L366.7 77.0 M375.7 65.0 L366.7 77.0"/>
+<path class="para" d="M241.8 235.5 a9 9 0 0 1 18 0 z M241.8 235.5 L250.8 247.5 M259.8 235.5 L250.8 247.5"/>
+<path class="para" d="M51.8 379.0 a9 9 0 0 1 18 0 z M51.8 379.0 L60.8 391.0 M69.8 379.0 L60.8 391.0"/>
+<path class="counter" d="M237.5 478.4 L247.0 384.8 L262.2 301.6" marker-end="url(#ab)"/>
+<path class="counter" d="M380.0 176.8 L361.0 124.8" marker-end="url(#ab)"/>
+<circle class="port" cx="421.8" cy="85.3" r="4"/><text class="m-s" x="429.8" y="89.3" text-anchor="start">台北</text>
+<circle class="port" cx="366.7" cy="77.0" r="4"/><text class="m-s" x="336.7" y="63.0" text-anchor="end">桃園機場</text>
+<circle class="port" cx="395.2" cy="60.3" r="4"/><text class="m-s" x="403.2" y="54.3" text-anchor="start">台北港</text>
+<circle class="port" cx="317.3" cy="135.2" r="4"/><text class="m-s" x="325.3" y="139.2" text-anchor="start">新竹</text>
+<circle class="port" cx="250.8" cy="247.5" r="4"/><text class="m-s" x="260.8" y="251.5" text-anchor="start">清泉崗</text>
+<circle class="port" cx="228.0" cy="243.3" r="4"/><text class="m-s" x="202.0" y="239.3" text-anchor="end">台中港</text>
+<circle class="port" cx="218.5" cy="409.7" r="4"/><text class="m-s" x="226.5" y="413.7" text-anchor="start">嘉義</text>
+<circle class="port" cx="171.0" cy="509.6" r="4"/><text class="m-s" x="141.0" y="513.6" text-anchor="end">台南</text>
+<circle class="port" cx="186.2" cy="592.7" r="4"/><text class="m-s" x="176.2" y="596.7" text-anchor="end">高雄港</text>
+<circle class="port" cx="437.0" cy="305.7" r="4"/><text class="m-s" x="445.0" y="309.7" text-anchor="start">花蓮</text>
+<circle class="port" cx="351.5" cy="561.5" r="4"/><text class="m-s" x="341.5" y="565.5" text-anchor="end">台東</text>
+<circle class="port" cx="465.5" cy="145.6" r="4"/><text class="m-s" x="473.5" y="149.6" text-anchor="start">宜蘭</text>
+<text class="m-s" x="60.8" y="413.0" text-anchor="middle">澎湖</text>
+<text class="m-r" x="19.0" y="31.2" text-anchor="start">北部軸線：灘頭→桃園機場→林口→台北</text>
+<text class="m-s" x="19.0" y="51.2" text-anchor="start">中部：台中港與清泉崗，沿西部走廊南北推進</text>
+<text class="m-s" x="19.0" y="644.7" text-anchor="start">虛線：間接路線推估（嘉義、東部）</text>
+<text class="m-twt" x="19.0" y="662.7" text-anchor="start">藍色：國軍反擊集中方向（示意）</text>
+</svg></div>
+<div class="maplegend"><span><span class="sw" style="background:var(--accent-tint);border-color:var(--accent);border-radius:50%"></span>登陸場</span><span>⌂ 空降、空突目標（示意）</span><span><span class="sw" style="background:var(--land-cn);border:0"></span>中央山脈</span></div>
+<figcaption><b>圖 13</b>登陸後縱深作戰可能行動示意圖。箭頭僅示意公開分析提及的推進方向，不代表實際計畫。</figcaption></figure>
+
+<div class="col">
+<h3>6.4 城鎮戰與斬首行動</h3>
+<p><span class="tag fact">事實</span>依日本智庫衛星影像分析，內蒙古朱日和訓練基地的仿台北政府區自 2020 年以來持續擴建，包含仿總統府、司法院之間約 280 公尺的地下通道，以及 2023 至 2024 年完工的仿國防部後備指揮部建物；影像顯示有裝甲車輛、路障與旅級部隊在此演練攻擊。<sup><a href="#r35">35</a></sup> 國防部長表示已掌握相關發展，並對可能的「斬首行動」有所防範。</p>
+<p><span class="tag est">推估</span>RAND 學者 Sale Lilly 的研究指出，解放軍自 2000 年代後期起投入城鎮作戰能力建設，其方向似乎指向攻取台北，但公開的解放軍文獻中明確提及台灣城鎮戰的內容相對稀少。<sup><a href="#r34">34</a></sup> 台灣陸軍步兵學校教官則認為，台灣多數人口居住在城市，城鎮戰將是防衛作戰的核心。<sup><a href="#r41">41</a></sup></p>
+
+<h3>6.5 縱深作戰的限制</h3>
+<ul>
+<li><span class="tag est">推估</span>CSIS 兵推發現，解放軍以海運與空降把部隊送上岸並不困難，真正的困難是突破初始登陸場並維持補給；美國若延遲或有限介入，形成難以清除的登陸場的風險才會上升。<sup><a href="#r30">30</a><a href="#r40">40</a></sup></li>
+<li><span class="tag est">推估</span>RealClearDefense 作者之一 Spencer-Churchill 表示，中國仍缺乏海運能力，且向內陸推進的速度追不上國軍集中反擊的速度。<sup><a href="#r39">39</a></sup> 美國海軍學會《Proceedings》2026 年 4 月的文章也強調，攻方若無法在岸上鞏固，就無法維持入侵。<sup><a href="#r38">38</a></sup></li>
+<li><span class="tag est">推估</span>《後備半年刊》研究主張將決勝地區由灘岸移向灘後，利用濱海城鎮逐次消耗、遲滯敵軍，並在港口、海灘與機降場預先實施阻絕。<sup><a href="#r37">37</a></sup></li>
+</ul>
+<p class="note">公開資料對「占領與綏靖」階段的著墨很少，本章對該階段僅列出可能的控制目標，未作細部推估。</p>
+
+<h2 id="c6"><span class="no">結論</span>結論與觀察指標</h2>
+<ul>
+<li><span class="tag off">官方評估</span>台、美國防部門的共同判斷是：解放軍的封鎖與火力打擊能力已相對成熟，登島能力仍在建構，關鍵年份落在 2027 至 2035 年之間。</li>
+<li><span class="tag est">推估</span>短期內較可能的形態是以演習或海警「執法」為名的隔離、局部封鎖與灰色地帶施壓，因其門檻低、可逆、且外國介入的理由較弱。</li>
+<li><span class="tag est">推估</span>全面登陸須大規模動員民船，並奪取港口或架設浮動碼頭，預警跡象較明顯；但「由演轉戰」可能壓縮預警時間。</li>
+</ul>
+<h3>建議持續觀察</h3>
+<ul>
+<li>是否出現正式動員令、民船大規模徵用與沿海港口異常集結。</li>
+<li>水橋駁船、076 型艦等投送裝備的數量與服役進度。</li>
+<li>演習是否由「示意區塊」轉為實際登檢、扣押或封港。</li>
+<li>海警在台灣本島周邊與金馬水域的執法頻率與範圍變化。</li>
+<li>春、秋兩季窗口期間東部戰區兵力集結與彈藥、油料推進情形。</li>
+</ul>
+
+<h2 id="refs"><span class="no">附錄</span>參考資料</h2>
+<ol class="refs">
+<li id="r1">中央社，〈國防部：中共對台威脅未曾減緩 藉威懾營造備戰氛圍〉，2026-08-31。<a href="https://www.cna.com.tw/news/aipl/202608310094.aspx">cna.com.tw</a>；自由時報軍武頻道，〈國防部：共軍演訓重點強化對臺作戰 但聯合登島仍能力不足〉。<a href="https://def.ltn.com.tw/article/breakingnews/5557838">def.ltn.com.tw</a></li>
+<li id="r2">中國時報，〈最新中共軍力報告 揭仲：聯合登島作戰成重點〉，2026-09-01。<a href="https://www.chinatimes.com/newspapers/20260901000514-260118">chinatimes.com</a>；風傳媒，〈共軍聯合登島進程加速？國防部曝最新軍力報告評估〉。<a href="https://www.storm.mg/article/11160517">storm.mg</a></li>
+<li id="r3">TVBS，〈2035前料敵更從寬！我114年「中共軍力報告書」揭犯台態樣、時機〉，2025。<a href="https://news.tvbs.com.tw/politics/2978847">news.tvbs.com.tw</a>；公視新聞網。<a href="https://news.pts.org.tw/article/768123">news.pts.org.tw</a></li>
+<li id="r4">Andrew S. Erickson, “Latest Pentagon Report: China’s Military Advancing Amid Churn,” War on the Rocks, 2026-01。<a href="https://warontherocks.com/2026/01/latest-pentagon-report-chinas-military-advancing-amid-churn/">warontherocks.com</a></li>
+<li id="r5">“China preparing to ‘win a war on Taiwan’ by 2027, new Pentagon report warns.” <a href="https://www.aol.com/articles/china-preparing-win-war-taiwan-154207221.html">aol.com</a>；Air &amp; Space Forces Magazine（較早年度報告）。<a href="https://www.airandspaceforces.com/china-military-power-report-highlights-concern-over-taiwan-contingency/">airandspaceforces.com</a></li>
+<li id="r6">Taiwan News，美國防部報告對聯合島嶼登陸戰役與聯合火力打擊之描述。<a href="https://www.taiwannews.com.tw/en/news/6272058">taiwannews.com.tw</a></li>
+<li id="r7">SCMP, “Mainland China stepping up preparations for Taiwan blockade, report says,” 2026-09。<a href="https://www.scmp.com/news/china/military/article/3366011/mainland-china-stepping-preparations-taiwan-blockade-report-says">scmp.com</a>；Taiwan News。<a href="https://www.taiwannews.com.tw/en/news/6433078">taiwannews.com.tw</a></li>
+<li id="r8">CSIS China Power, “How China Could Quarantine Taiwan: Mapping Out Two Possible Scenarios,” 2024-06。<a href="https://www.csis.org/analysis/how-china-could-quarantine-taiwan-mapping-out-two-possible-scenarios">csis.org</a></li>
+<li id="r9">ASPI, “China’s large-scale military exercises around Taiwan since 2022” tracker。<a href="https://www.pressurepoints.aspi.org.au/taiwan-and-the-taiwan-strait/chinas-military-coercion/chinas-large-scale-exercises-since-2022">aspi.org.au</a>；Wikipedia, “Justice Mission 2025.” <a href="https://en.wikipedia.org/wiki/Justice_Mission_2025">wikipedia.org</a></li>
+<li id="r10">CSIS ChinaPower, “How Is China Responding to the Inauguration of Taiwan’s President William Lai?”（聯合利劍-2024A）。<a href="https://chinapower.csis.org/china-respond-inauguration-taiwan-william-lai-joint-sword-2024a-military-exercise/">chinapower.csis.org</a>；<span id="r10b">Global Taiwan Institute, “The PLA’s ‘Justice Mission-2025’ Exercise Around Taiwan,” 2026-01。<a href="https://globaltaiwan.org/2026/01/pla-justice-mission-2025/">globaltaiwan.org</a>；NPR, 2025-12-29。<a href="https://www.npr.org/2025/12/29/g-s1-103877/chinese-military-drills-around-taiwan">npr.org</a></span></li>
+<li id="r11">USNI News, “Chinese Military Wraps Intimidation Drills Off Taiwan,” 2025-04-02。<a href="https://news.usni.org/2025/04/02/chinese-military-wraps-intimidation-drills-off-taiwan">news.usni.org</a>；Wikipedia, “Strait Thunder-2025A.” <a href="https://en.wikipedia.org/wiki/Strait_Thunder-2025A">wikipedia.org</a></li>
+<li id="r12">Global Taiwan Institute, “The PLA’s Strait Thunder Exercise,” 2025-04。<a href="https://globaltaiwan.org/2025/04/the-plas-strait-thunder-exercise/">globaltaiwan.org</a>；China Daily HK（中方說法）。<a href="https://chinadailyhk.com/article/608553">chinadailyhk.com</a></li>
+<li id="r13">CMSI China Maritime Studies Note 14（水橋駁船）。<a href="https://digital-commons.usnwc.edu/cmsi-notes/14">usnwc.edu</a></li>
+<li id="r14">Andrew Erickson, “Shuiqiao Bridge Barges Expand &amp; Extend PRC Amphibious Landing Capabilities,” 2025-03。<a href="https://www.andrewerickson.com/2025/03/shuiqiao-bridge-barges-expand-extend-prc-amphibious-landing-capabilities-threatening-taiwan/">andrewerickson.com</a></li>
+<li id="r15">J. Michael Dahm, CMSI China Maritime Report No. 35, “Beyond Chinese Ferry Tales,” 2023。<a href="https://www.andrewerickson.com/wp-content/uploads/2024/02/CMSI_China-Maritime-Report_35_Beyond-Chinese-Ferry-Tales_The-Rise-of-Deck-Cargo-Ships_Dahm_202302.pdf">PDF</a></li>
+<li id="r16">Andrew Erickson, “China Is Rehearsing More Than Amphibious Landings,” 2026-06。<a href="https://www.andrewerickson.com/2026/06/china-is-rehearsing-more-than-amphibious-landings/">andrewerickson.com</a>；Asia Times, 2025-11。<a href="https://asiatimes.com/2025/11/chinas-ro-ro-drills-a-civilian-military-mind-game-on-taiwan/">asiatimes.com</a></li>
+<li id="r17">Asia Times, “China would use commercial ferries to invade Taiwan,” 2023-10（Shugart 估計、揭仲觀點）。<a href="https://asiatimes.com/2023/10/china-would-use-commercial-ferries-to-invade-taiwan/">asiatimes.com</a></li>
+<li id="r18">The Dupuy Institute, “The load on PLA Navy Amphibious Assault Ships,” 2024-12。<a href="https://dupuyinstitute.org/2024/12/03/the-load-on-pla-navy-amphibious-assault-ships/">dupuyinstitute.org</a></li>
+<li id="r19">Naval News, “Reviewing the Chinese Navy in 2025 – Part I: The surface fleet,” 2026-01。<a href="https://www.navalnews.com/naval-news/2026/01/reviewing-the-chinese-navy-in-2025-part-i-the-surface-fleet/">navalnews.com</a></li>
+<li id="r20">USNI News, “Next-generation Chinese Amphibious Assault Ship Holds First Sea Trial,” 2025-11-14。<a href="https://news.usni.org/2025/11/14/next-generation-chinese-amphibious-assault-ship-holds-first-sea-trial">news.usni.org</a></li>
+<li id="r21">ASPI The Strategist, “Floating piers and sinking hopes: China’s logistics challenge in invading Taiwan.” <a href="https://www.aspistrategist.org.au/editors-picks-for-2024-floating-piers-and-sinking-hopes-chinas-logistics-challenge-in-invading-taiwan/">aspistrategist.org.au</a></li>
+<li id="r22">War on the Rocks, “A Strait Too Far.” <a href="https://warontherocks.com/a-strait-too-far-how-a-deliberate-campaigning-approach-in-the-pacific-can-make-beijing-think-twice/">warontherocks.com</a></li>
+<li id="r23">John Culver, “How We Would Know When China Is Preparing to Invade Taiwan,” Carnegie Endowment, 2022-10。<a href="https://carnegieendowment.org/2022/09/29/how-we-would-know-when-china-is-preparing-to-invade-taiwan-pub-88053">carnegieendowment.org</a></li>
+<li id="r24">聯合新聞網，〈漢光42號演習強化反封鎖 西太平洋演練物資接轉、護航〉，2026。<a href="https://udn.com/news/story/10930/9655575">udn.com</a>；<span id="r24b">SCMP, “How Taiwan is preparing for a PLA sea blockade in its biggest war games.” <a href="https://www.scmp.com/news/china/military/article/3362965/how-taiwan-preparing-pla-sea-blockade-its-biggest-war-games">scmp.com</a></span></li>
+<li id="r25">Taipei Times, “Ministry on guard for PLA exercises,” 2026-10-16。<a href="https://www.taipeitimes.com/News/taiwan/archives/2026/10/16/2003866057">taipeitimes.com</a></li>
+<li id="r26">RFA, “China trying to ‘normalize’ incursions in Taiwan Strait, Taipei says,” 2024-06。<a href="https://www.rfa.org/english/news/southchinasea/china-taiwan-patrols-06282024035541.html">rfa.org</a></li>
+<li id="r27">The EurAsian Times, “Red Beaches: Taiwan prepares for a potential Chinese amphibious assault.” <a href="https://www.eurasiantimes.com/red-beaches-taiwan-prepares-for-a-potential-chinese-amphibious">eurasiantimes.com</a></li>
+<li id="r28">CNA via GlobalSecurity，台南、台中灘岸反登陸實彈演練，2024-06。<a href="https://www.globalsecurity.org/wmd/library/news/taiwan/2024/taiwan-240602-cna03.htm">globalsecurity.org</a></li>
+<li id="r29">CIMSEC, “Island Blitz: A Campaign Analysis of a Taiwan Takeover by the PLA.” <a href="https://cimsec.org/island-blitz-a-campaign-analysis-of-a-taiwan-takeover-by-the-pla/">cimsec.org</a></li>
+<li id="r30">Cancian, Cancian &amp; Heginbotham, “The First Battle of the Next War: Wargaming a Chinese Invasion of Taiwan,” CSIS, 2023-01。<a href="https://www.csis.org/analysis/first-battle-next-war-wargaming-chinese-invasion-taiwan">csis.org</a></li>
+<li id="r31">Dennis J. Blasko, CMSI China Maritime Report No. 20, “The PLA Army Amphibious Force,” 2022。<a href="https://digital-commons.usnwc.edu/cmsi-maritime-reports/20/">usnwc.edu</a></li>
+<li id="r32">Janes, “PLA deploys air defence systems along Taiwan Strait,” 2023-04-13。<a href="https://www.janes.com/defence-news/pla-deploys-air-defence-systems-along-taiwan-strait">janes.com</a></li>
+<li id="r33">RealClearDefense, “China Cannot Yet Hold a Beach on Taiwan,” 2026-08-25。<a href="https://www.realcleardefense.com/military-strategy/articles/china-cannot-yet-hold-a-beach-on-taiwan-2026-08-25">realcleardefense.com</a></li>
+<li id="r34">Sale Lilly, “Killing Rats in a Porcelain Shop: PLA Urban Warfare in a Taiwan Campaign,” RAND。<a href="https://www.rand.org/pubs/external_publications/EP69045.html">rand.org</a></li>
+<li id="r35">The Defense Post, 朱日和「仿台北」訓練設施擴建，2025-10-07。<a href="https://thedefensepost.com/2025/10/07/china-mini-taiwan-complex-military/">thedefensepost.com</a>；Tribune India / ANI。<a href="https://www.tribuneindia.com/news/world/china-builds-mock-taipei-war-zone-aggressive-expansion-highlights-invasion-threat">tribuneindia.com</a></li>
+<li id="r36">Taiwan News，國防部桌上推演（台東、花蓮、宜蘭與澎湖想定）。<a href="https://www.taiwannews.com.tw/en/news/6134898">taiwannews.com.tw</a></li>
+<li id="r37">國防部《後備半年刊》相關研究（第 106 期共軍城鎮作戰與桃園、第 109 期桃園機場反空降作戰）。<a href="https://www.mnd.gov.tw/File/43030">mnd.gov.tw/File/43030</a>；<a href="https://www.mnd.gov.tw/File/48131">mnd.gov.tw/File/48131</a></li>
+<li id="r38">U.S. Naval Institute Proceedings, “Shattering the Lodgment: Standoff Area-Effect Fires in Taiwan’s Defense,” 2026-04。<a href="https://www.usni.org/magazines/proceedings/2026/april/shattering-lodgment-standoff-area-effect-fires-taiwans-defense">usni.org</a></li>
+<li id="r39">The Dupuy Institute, “Battle for Taiwan #4,” 2026-08-25。<a href="https://dupuyinstitute.org/2026/08/25/battle-for-taiwan-4/">dupuyinstitute.org</a></li>
+<li id="r40">MTN Tactical, “Wargame Insights: Taiwan’s Defense and the Cost of Conflict”（CSIS 兵推摘要）。<a href="https://mtntactical.com/knowledge/wargame-insights-taiwans-defense-and-the-cost-of-conflict/">mtntactical.com</a></li>
+<li id="r41">SCMP, “Taiwanese troops prepare for urban warfare with PLA in latest drill.” <a href="https://amp.scmp.com/news/china/military/article/3162384/taiwanese-troops-prepare-urban-warfare-pla-latest-drill">scmp.com</a></li>
+<li id="r42">新頭殼，國軍於桃園機場周邊與重要港口實施立即備戰操演，2026-06-22。<a href="https://newtalk.tw/news/view/2026-06-22/1042719">newtalk.tw</a></li>
+</ol>
+<p class="note">本報告僅彙整公開資訊，標示為「推估」或「本報告推算」者不代表已知作戰計畫。部分外文來源係經新聞或評論轉述，引用前建議查閱原始報告；台灣國防部報告書原文可於國防部官網取得。</p>
+</div>
+</div>
+
+</body>
+</html>
