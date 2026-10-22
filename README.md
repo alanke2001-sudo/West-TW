@@ -6,6 +6,7 @@
 
 | 日期 | 報告 | 檔案 |
 |---|---|---|
+| 2026-10-22 | [敵情威脅：中共對臺軍事行動與航空威脅研析（簡報）](reports/2026-10-enemy-briefing/index.html)（七章、50 頁、14 張概念圖） | [PowerPoint](reports/2026-10-enemy-briefing/敵情威脅簡報.pptx) · [PDF](reports/2026-10-enemy-briefing/敵情威脅簡報.pdf) · [概念圖](reports/2026-10-enemy-briefing/figures/) |
 | 2026-10-22 | [解放軍無人系統與直升機威脅資料庫](reports/2026-10-pla-unmanned/index.html)（54 筆條目、3 張圖解、23 張裝備照片、51 筆出處，可篩選） | [Word](reports/2026-10-pla-unmanned/) · [CSV](reports/2026-10-pla-unmanned/entries.csv) · [JSON](reports/2026-10-pla-unmanned/entries.json) · [圖解](reports/2026-10-pla-unmanned/figures/) · [裝備照片](reports/2026-10-pla-unmanned/figures/photos/) |
 | 2026-10-20 | [解放軍對台軍事行動態勢研析](reports/2026-10-pla-taiwan/index.html)（六章、13 張圖解、42 筆出處） | [Word](reports/2026-10-pla-taiwan/) · [圖解](reports/2026-10-pla-taiwan/figures/) |
 
