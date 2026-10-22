@@ -39,7 +39,7 @@ window.WEST_TW_CATALOG = {
    "title": "解放軍無人系統與直升機威脅資料庫",
    "date": "2026-10-22",
    "path": "reports/2026-10-pla-unmanned/index.html",
-   "summary": "逐筆整理解放軍無人機、機器狗與無人地面車、無人艇與潛航器、反無人機與電子干擾體系，以及可能危害直升機飛行的武器與實際事件。共 54 筆條目、3 張圖解、51 筆出處，網頁內可依關鍵字與類別篩選，另附 CSV 與 JSON 資料檔。",
+   "summary": "逐筆整理解放軍無人機、機器狗與無人地面車、無人艇與潛航器、反無人機與電子干擾體系，以及可能危害直升機飛行的武器與實際事件。共 54 筆條目、3 張圖解、23 張裝備照片、51 筆出處，網頁內可依關鍵字與類別篩選，另附 CSV 與 JSON 資料檔。",
    "files": [
     {
      "label": "Word 檔",
@@ -56,6 +56,10 @@ window.WEST_TW_CATALOG = {
     {
      "label": "圖解 PNG",
      "path": "reports/2026-10-pla-unmanned/figures/"
+    },
+    {
+     "label": "裝備照片 JPG",
+     "path": "reports/2026-10-pla-unmanned/figures/photos/"
     }
    ],
    "tags": [
@@ -145,6 +149,17 @@ window.WEST_TW_CATALOG = {
      "tags": [
       "預警指標",
       "無人機",
+      "反無人機",
+      "直升機威脅"
+     ]
+    },
+    {
+     "title": "附錄一 裝備圖片",
+     "anchor": "photos",
+     "summary": "21 筆裝備的 23 張 Wikimedia Commons 自由授權照片，逐張註明作者與授權，可點回對應條目。",
+     "tags": [
+      "無人機",
+      "無人艇與潛航器",
       "反無人機",
       "直升機威脅"
      ]

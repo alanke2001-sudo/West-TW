@@ -439,10 +439,9 @@ RANGE_CHART = [
 PHOTOS = [
  ("U01", "File:PLA WZ-7 2024-07-30.jpg", "日本航空自衛隊緊急升空時拍攝"),
  ("U02", "File:WZ-8 at Airshow China Zhuhai 2022.jpg", "2022 年珠海航展展示"),
- ("U04", "File:PLA BZK-005 2024-10-28.jpg", "2024-10 通過沖繩本島與宮古島之間，日本防衛省拍攝"),
+ ("U04", "File:PLA Drone BZK-005 2023-08-28.jpg", "2023-08 飛經先島群島南方往巴士海峽，日本防衛省拍攝"),
  ("U05", "File:TB-001 over the East China Sea (cropped).jpg", "東海上空，日本防衛省拍攝"),
  ("U06", "File:2025-02-26 PLA GJ-2 (Chengdu Wing Loong 2).jpg", "2025-02 日本防衛省拍攝"),
- ("U07", "File:PLA Reconnaissance Drone BZK-007 (March 2022).jpg", "BZK-007，2022-03 進入日本防空識別區"),
  ("U07", "File:CH-4 at Airshow China Zhuhai 2022.jpg", "彩虹-4，2022 年珠海航展"),
  ("U08", "File:GJ-11 at Airshow China Zhuhai 2021.jpg", "2021 年珠海航展展示"),
  ("U09", "File:GJ-21 UCAV.jpg", "2025 年北京閱兵受閱"),

@@ -41,7 +41,7 @@ def get(params):
 
 def thumb(url):
     # 只使用 Wikimedia 建議的標準縮圖寬度，避免下載原圖遭限速
-    base, name = url.rsplit("/", 1)
+    base, name = url.split("?")[0].rsplit("/", 1)
     return base.replace("/wikipedia/commons/", "/wikipedia/commons/thumb/") + f"/{name}/{TW}px-{name}"
 
 
@@ -59,7 +59,7 @@ def info(titles):
             continue
         ii = p["imageinfo"][0]; m = ii.get("extmetadata", {})
         v = lambda k: plain(m.get(k, {}).get("value", ""))
-        out[p["title"]] = {"file": p["title"], "page": ii["descriptionurl"], "thumb": thumb(ii["url"]) if ii.get("width", 0) > TW else ii["url"], "orig": ii["url"],
+        out[p["title"]] = {"file": p["title"], "page": ii["descriptionurl"], "thumb": thumb(ii["url"]) if ii.get("width", 0) > TW else ii["url"].split("?")[0], "orig": ii["url"].split("?")[0],
                            "author": v("Artist") or v("Credit"), "license": v("LicenseShortName"),
                            "license_url": v("LicenseUrl"), "date": v("DateTimeOriginal")[:10], "desc": v("ImageDescription")[:200]}
     return out
