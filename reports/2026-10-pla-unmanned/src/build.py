@@ -2,7 +2,7 @@
 """產生離線網頁 index.html、entries.json、entries.csv。
 用法（於報告資料夾）：python3 src/build.py
 """
-import csv, html, json, os, re, sys
+import base64, csv, html, json, os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
@@ -102,6 +102,32 @@ def fig_timeline():
     return f'<svg viewBox="0 0 {W} {H}" role="img" aria-label="解放軍無人系統對台相關活動時間線">' + "".join(p) + "</svg>"
 
 
+PHOTOS_META = json.load(open(os.path.join(HERE, "photos.json"), encoding="utf-8")) if os.path.exists(os.path.join(HERE, "photos.json")) else []
+HAS_PHOTO = {p["id"] for p in PHOTOS_META}
+
+
+def credit(p):
+    lic = f'<a href="{esc(p["license_url"])}">{esc(p["license"])}</a>' if p["license_url"] else esc(p["license"])
+    return f'圖片：{esc(p["author"] or "未署名")}，{lic}，取自 <a href="{esc(p["page"])}">Wikimedia Commons</a>'
+
+
+def photo_appendix():
+    names = {e["id"]: e["name"] for e in E}
+    out = []
+    for a, _, t, _ in CHAPTERS:
+        ps = [p for p in PHOTOS_META if dict((e["id"], e["ch"]) for e in E)[p["id"]] == a]
+        if not ps:
+            continue
+        out.append(f'<h3>{esc(t)}</h3><div class="photos">')
+        for p in ps:
+            b64 = base64.b64encode(open(os.path.join(OUT, "figures", "photos", p["img"]), "rb").read()).decode()
+            out.append(f'<figure class="photo" id="p-{p["img"][:-4]}"><img src="data:image/jpeg;base64,{b64}" alt="{esc(names[p["id"]])}" loading="lazy">'
+                       f'<figcaption><a class="eid" href="#{p["id"]}">{p["id"]}</a> <b>{esc(names[p["id"]])}</b>'
+                       f'{"：" + esc(p["caption"]) if p["caption"] else ""}<br><span class="cr">{credit(p)}</span></figcaption></figure>')
+        out.append('</div>')
+    return "".join(out)
+
+
 def card(e):
     rows = []
     for k, lab in (("kind", "類型"), ("maker", "研製單位"), ("status", "狀態")):
@@ -121,7 +147,7 @@ def card(e):
             f'{"<span class=alias>" + esc(e["alias"]) + "</span>" if e["alias"] else ""}'
             f'<span class="tag {e["label"]}">{LABEL[e["label"]]}</span></header>'
             f'<dl>{"".join(rows)}</dl>{"".join(body)}'
-            f'<footer><span class="tags">{tags}</span><span class="src">出處{sup(e["refs"]) or "：無"}</span></footer></article>')
+            f'<footer><span class="tags">{tags}</span><span class="src">{f'<a href="#p-{e["id"]}-1">圖片</a>　' if e["id"] in HAS_PHOTO else ""}出處{sup(e["refs"]) or "：無"}</span></footer></article>')
 
 
 CSS = open(os.path.join(HERE, "style.css"), encoding="utf-8").read()
@@ -150,7 +176,7 @@ def build():
 <li><span class="tag gap">資料缺口</span>本次公開檢索未找到解放軍列裝反直升機地雷的可靠報導。</li>
 </ul></div>''')
     toc = "".join(f'<li><a href="#{a}">{no} {t}</a></li>' for a, no, t, _ in CHAPTERS)
-    w(f'<nav class="toc" aria-label="目錄"><ol><li><a href="#c0">總覽與條目索引</a></li>{toc}<li><a href="#c6">對台相關活動時間線</a></li><li><a href="#c7">研判與觀察指標</a></li><li><a href="#refs">參考資料</a></li></ol></nav>')
+    w(f'<nav class="toc" aria-label="目錄"><ol><li><a href="#c0">總覽與條目索引</a></li>{toc}<li><a href="#c6">對台相關活動時間線</a></li><li><a href="#c7">研判與觀察指標</a></li>{'<li><a href="#photos">裝備圖片</a></li>' if PHOTOS_META else ''}<li><a href="#refs">參考資料</a></li></ol></nav>')
     # 總覽
     w('<h2 id="c0"><span class="no">總覽</span>分類與條目索引</h2>')
     w(f'<p>本資料庫共 {len(E)} 筆條目，分為五類：' + "、".join(f"{t} {n[a]} 筆" for a, _, t, _ in CHAPTERS) + '。下圖依任務細分，表格可點選跳至各條目。</p>')
@@ -197,7 +223,10 @@ def build():
 <li>LY-1、颶風-3000 等反無人機系統是否部署到沿海機場、港口或兩棲艦。</li>
 <li>解放軍艦機對外國直升機施放熱焰彈、雷射照射或危險逼近事件是否擴及台灣周邊。</li>
 </ul>''')
-    w('<h2 id="refs"><span class="no">附錄</span>參考資料</h2><ol class="refs">')
+    if PHOTOS_META:
+        w(f'<h2 id="photos"><span class="no">附錄一</span>裝備圖片</h2><p>以下為本資料庫提及裝備中，可在 Wikimedia Commons 找到自由授權照片者，共 {len(PHOTOS_META)} 張、涵蓋 {len(HAS_PHOTO)} 筆條目。每張圖下方註明作者與授權，點選編號可回到條目。部分照片為航展或閱兵展示機，外觀可能與服役型號不同；未列出的條目為公開圖庫無自由授權照片。</p></div>')
+        w(f'<div class="photowrap">{photo_appendix()}</div><div class="col">')
+    w(f'<h2 id="refs"><span class="no">{"附錄二" if PHOTOS_META else "附錄"}</span>參考資料</h2><ol class="refs">')
     for k in sorted(REFS):
         t, u = REFS[k]
         host = re.sub(r"^https?://(www\.)?", "", u).split("/")[0]

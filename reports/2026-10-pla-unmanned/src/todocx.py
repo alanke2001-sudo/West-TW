@@ -9,7 +9,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 from data import REFS, CHAPTERS, E, TIMELINE
-from build import TITLE, DATE, LABEL
+from build import TITLE, DATE, LABEL, PHOTOS_META
 
 FONT = 'Microsoft JhengHei'
 COL = {'fact': RGBColor(0x2f, 0x6b, 0x43), 'off': RGBColor(0x1d, 0x55, 0x96), 'est': RGBColor(0x93, 0x62, 0x0b),
@@ -105,7 +105,21 @@ for txt in ['BZK-005、TB-001、攻擊-2 以外的新機型（如攻擊-11、彩
             'LY-1、颶風-3000 等反無人機系統是否部署到沿海機場、港口或兩棲艦。', '解放軍艦機對外國直升機施放熱焰彈、雷射照射或危險逼近事件是否擴及台灣周邊。']:
     para(txt, style='List Bullet')
 
-doc.add_heading('參考資料', 1)
+if PHOTOS_META:
+    names = {e['id']: e['name'] for e in E}
+    doc.add_heading('附錄一　裝備圖片', 1)
+    para(f'以下為本資料庫提及裝備中，可在 Wikimedia Commons 找到自由授權照片者，共 {len(PHOTOS_META)} 張。每張圖註明作者與授權；部分照片為航展或閱兵展示機，外觀可能與服役型號不同。')
+    for ph in PHOTOS_META:
+        doc.add_picture(os.path.join(OUT, 'figures', 'photos', ph['img']), width=Cm(11))
+        doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
+        p = para(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        r = p.add_run(f"{ph['id']}　{names[ph['id']]}"); r.bold = True; r.font.size = Pt(9.5)
+        if ph['caption']:
+            p.add_run('：' + ph['caption']).font.size = Pt(9.5)
+        p = para(f"圖片：{ph['author'] or '未署名'}，{ph['license']}，Wikimedia Commons {ph['page']}", size=8, color=COL['calc'])
+        p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+
+doc.add_heading('附錄二　參考資料' if PHOTOS_META else '參考資料', 1)
 for k in sorted(REFS):
     t, u = REFS[k]
     p = para(f'[{k}] {t}', size=9); r = p.add_run(' ' + u); r.font.size = Pt(8); r.font.color.rgb = COL['off']

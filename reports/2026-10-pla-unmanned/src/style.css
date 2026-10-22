@@ -96,3 +96,13 @@ svg text{font-family:var(--f-body);fill:var(--ink)}
 .d-axis{stroke:var(--muted);stroke-width:2}
 .d-dot{fill:var(--tw)} .d-dot.y2022,.d-dot.y2023{fill:var(--muted)} .d-dot.y2025,.d-dot.y2026{fill:var(--accent)}
 .b-man{fill:var(--accent)} .b-shorad{fill:var(--tw)} .b-de{fill:var(--est);opacity:.7}
+/* 附錄：裝備圖片 */
+.photowrap{max-width:980px;margin:0 auto}
+.photowrap h3{max-width:720px;margin:32px auto 6px}
+.photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+figure.photo{margin:0;padding:10px 10px 8px;scroll-margin-top:16px}
+figure.photo img{display:block;width:100%;aspect-ratio:4/3;object-fit:contain;background:var(--bg)}
+figure.photo figcaption{font-size:13px;margin-top:8px}
+figure.photo figcaption b{font-family:var(--f-body);font-weight:700;margin-right:0}
+figure.photo .eid{text-decoration:none;margin-right:4px}
+figure.photo .cr{font-size:12px}

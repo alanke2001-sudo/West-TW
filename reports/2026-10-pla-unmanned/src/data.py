@@ -433,3 +433,31 @@ RANGE_CHART = [
  ("QW-3", 8, 4, "便攜"), ("HQ-17A", 15, None, "野戰"), ("沉默獵手（雷射）", 4, None, "定向能"),
  ("颶風-3000（微波）", 3, None, "定向能"),
 ]
+
+# 附錄一：裝備圖片（Wikimedia Commons 自由授權）。欄位：條目 id、Commons 檔名、說明
+# 由 src/photos.py fetch 下載至 figures/photos/ 並寫出 src/photos.json（作者、授權）
+PHOTOS = [
+ ("U01", "File:PLA WZ-7 2024-07-30.jpg", "日本航空自衛隊緊急升空時拍攝"),
+ ("U02", "File:WZ-8 at Airshow China Zhuhai 2022.jpg", "2022 年珠海航展展示"),
+ ("U04", "File:PLA Drone BZK-005 2023-08-28.jpg", "2023-08 飛經先島群島南方往巴士海峽，日本防衛省拍攝"),
+ ("U05", "File:TB-001 over the East China Sea (cropped).jpg", "東海上空，日本防衛省拍攝"),
+ ("U06", "File:2025-02-26 PLA GJ-2 (Chengdu Wing Loong 2).jpg", "2025-02 日本防衛省拍攝"),
+ ("U07", "File:CH-4 at Airshow China Zhuhai 2022.jpg", "彩虹-4，2022 年珠海航展"),
+ ("U08", "File:GJ-11 at Airshow China Zhuhai 2021.jpg", "2021 年珠海航展展示"),
+ ("U09", "File:GJ-21 UCAV.jpg", "2025 年北京閱兵受閱"),
+ ("U10", "File:UCAV 2025 V-J Parade CNS.png", "2025 年北京閱兵受閱之新型無人作戰機"),
+ ("U10", "File:UCAV-53431 2025 V-J Parade CNS.png", "2025 年北京閱兵，機身編號 53431"),
+ ("U11", "File:FH-97A in zhuhai airshow 2024 3x.jpg", "2024 年珠海航展展示"),
+ ("U18", "File:AVIC AR-2000 unmanned helicopter at IDEX 2025.jpg", "AR-2000，2025 年阿布達比防務展"),
+ ("U18", "File:Unmanned Helicopter 2025 V-J Parade CNS.png", "2025 年北京閱兵受閱之無人直升機"),
+ ("U20", "File:LHD Sichuan.jpg", "2024-12 下水時"),
+ ("G04", "File:Unitree Go2 of Salvamont side view.jpg", "宇樹 Go2 民用型（羅馬尼亞山域救援隊），示意平台外觀，非解放軍裝備"),
+ ("M03", "File:HSU100 2025 V-J Parade CNS.png", "2025 年北京閱兵受閱"),
+ ("M04", "File:AJX002 2025 V-J Parade CNS.png", "2025 年北京閱兵受閱"),
+ ("C01", "File:LY-1 2025 V-J Parade CNS.png", "2025 年北京閱兵受閱"),
+ ("C09", "File:FK3000 2025 V-J Parade CNS.png", "FK-3000，2025 年北京閱兵受閱"),
+ ("C10", "File:PLB625 2025 V-J Parade CNS.png", "2025 年北京閱兵受閱"),
+ ("C12", "File:Shenyang J-16D.jpg", "殲-16D 電戰機（同型機），中華民國國防部提供"),
+ ("H01", "File:QW-2 MANPADS of Bangladesh Army.jpg", "前衛-2 外銷型（孟加拉陸軍），示意外觀"),
+ ("H05", "File:HQ-11 in Zhuhai airshow 2024.jpg", "2024 年珠海航展展示"),
+]
