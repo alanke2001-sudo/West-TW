@@ -27,6 +27,11 @@ def urlget(url):
                 raise
             print("  429, retry-after", e.headers.get("retry-after"), flush=True)
             time.sleep(min(int(e.headers.get("retry-after") or 10), 620) + 5)
+        except (urllib.error.URLError, ConnectionError, TimeoutError) as e:
+            if k == 29:
+                raise
+            print("  network error, retrying:", e, flush=True)
+            time.sleep(20)
 
 
 def get(params):
