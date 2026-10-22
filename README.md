@@ -27,7 +27,7 @@ reports/<YYYY-MM-主題>/     每份報告一個資料夾
 
 1. 建立 `reports/<YYYY-MM-主題>/`，放入離線網頁版 `index.html`、Word 檔與 `figures/`。網頁內各章標題需有 `id`，頁首加上 `<a href="../../index.html">← 返回 West-TW 報告資料庫</a>`。
 2. 在 `data/catalog.json` 的 `reports` 加入一筆：`id`、`title`、`date`、`path`、`summary`、`files`、報告層級 `tags`，以及每章的 `sections`（`title`、`anchor`、`summary`、`tags`）。
-3. 標籤優先沿用 `tag_groups` 既有的詞，讓不同報告能互相串連；確實需要新詞時，加到最適合的分組。
+3. 標籤只用 `tag_groups` 既有的詞（目前 4 組 23 個），讓不同報告能互相串連，首頁也不會被標籤淹沒。細項（裝備型號、城市、資料來源）留在報告內文，不另立標籤；確實需要新主題時才加到最適合的分組，總數維持在約 25 個以內。
 4. 執行 `python3 tools/build_catalog.py`。它會檢查檔案與章節錨點是否存在、標籤是否在分組內，並重新產生 `data/catalog.js`。
 5. 更新上方「目前收錄」表格，提交並開合併請求。
 

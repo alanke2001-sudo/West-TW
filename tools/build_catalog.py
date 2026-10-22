@@ -2,11 +2,12 @@
 
 Run from the repository root:  python3 tools/build_catalog.py
 """
-import json, os, re, sys
+import hashlib, json, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, 'data', 'catalog.json')
 OUT = os.path.join(ROOT, 'data', 'catalog.js')
+INDEX = os.path.join(ROOT, 'index.html')
 
 
 def main():
@@ -51,6 +52,12 @@ def main():
         fh.write('window.WEST_TW_CATALOG = ')
         json.dump(cat, fh, ensure_ascii=False, indent=1)
         fh.write(';\n')
+    # 首頁以內容雜湊作為 catalog.js 的版本參數，避免瀏覽器或 GitHub Pages 快取舊資料
+    ver = hashlib.sha1(open(OUT, 'rb').read()).hexdigest()[:10]
+    page = open(INDEX, encoding='utf-8').read()
+    page = re.sub(r'src="data/catalog\.js(\?v=[0-9a-f]+)?"', f'src="data/catalog.js?v={ver}"', page)
+    with open(INDEX, 'w', encoding='utf-8') as fh:
+        fh.write(page)
     n_sec = sum(len(r.get('sections', [])) for r in cat['reports'])
     print(f'ok: {len(cat["reports"])} reports, {n_sec} sections -> data/catalog.js')
 
